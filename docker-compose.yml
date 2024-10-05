@@ -1,0 +1,15 @@
+version: '3.5'
+
+services:
+  angular-docker:
+    build: .
+    container_name: angular-docker
+    ports:
+      - '4200:4200'
+      - '49153:49153'
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - STYLE=css
+    tty: true
