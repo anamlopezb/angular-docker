@@ -1,0 +1,18 @@
+.header{
+    align-items: center;
+    background-color: #f90
+}
+
+.header img {
+    height: 35px;
+}
+
+.sidebar-urls{
+    text-decoration: none; /* Quita el subrayado */
+    color: inherit;  
+}
+
+.sidebar-url-selected{
+    text-decoration: none; 
+    color: white;
+}
