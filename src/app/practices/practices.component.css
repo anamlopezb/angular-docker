@@ -1,0 +1,15 @@
+
+p-table {
+    width: 100%; /* La tabla ocupa todo el ancho del contenedor */
+    max-width: 1200px; /* Añadir esto para controlar el ancho máximo */
+    margin-left: auto !important;/* Centramos la tabla */
+    margin-right: auto; /* Centramos la tabla */
+    table-layout: fixed; /* Fija el ancho de las columnas */
+    overflow-x: auto; /* Permite scroll horizontal si el contenido es muy largo */
+}
+
+p-table th, p-table td {
+    text-align: left; /* Alineación del texto */
+    padding: 1rem; /* Espaciado interno de las celdas */
+    word-wrap: break-word; /* Evita que el contenido se desborde de las celdas */
+}

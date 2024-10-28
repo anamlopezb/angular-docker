@@ -1,16 +1,27 @@
-import { Component } from '@angular/core';
-import { TableModule } from 'primeng/table';
+// src/app/practices/practices.component.ts
+import { Component, OnInit } from '@angular/core';
+import { TableModule } from 'primeng/table'; 
+import { PracticesService } from '../services/practices.service';
 
 @Component({
   selector: 'app-practices',
   standalone: true,
-  imports: [ 
-    TableModule],
+  imports:  [
+    TableModule,
+  ],
   templateUrl: './practices.component.html',
-  styleUrl: './practices.component.css'
+  styleUrls: ['./practices.component.css'],
 })
-export class PracticesComponent {
-  products = [
-    {code: '007', name: 'agente', category: 'papitas', quantity: 6}
-  ]
+export class PracticesComponent implements OnInit {
+  practices: any[] = []; // Cambia el tipo si tienes una interfaz específica
+
+  constructor(private practicesService: PracticesService) {}
+
+  ngOnInit(): void {
+    this.loadPractices();
+  }
+
+  async loadPractices(): Promise<void> {
+    this.practices = await this.practicesService.getPractices();
+  }
 }

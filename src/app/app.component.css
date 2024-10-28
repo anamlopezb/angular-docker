@@ -1,18 +1,378 @@
-.header{
-    align-items: center;
-    background-color: #f90
+.navbar {
+  display: flex;
+  align-items: center; /* Alinea verticalmente el contenido */
+  justify-content: space-between; /* Espacia los elementos */
+  padding: 1rem; /* Añade un relleno adecuado */
+  background-color: #fff; /* Color de fondo */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra */
 }
 
-.header img {
-    height: 35px;
+
+.layout-wrapper {
+  display: flex; /* Establece una disposición flexible para la barra lateral y el contenido */
 }
 
-.sidebar-urls{
-    text-decoration: none; /* Quita el subrayado */
-    color: inherit;  
+.sidebar {
+  background-color: #283142; /* Color de fondo de la barra lateral */
+  color: white; /* Color del texto en la barra lateral */
+  padding: 1rem; /* Espaciado interno */
+  width: 250px; /* Ancho de la barra lateral */
+  height: 100vh; /* Altura completa de la ventana */
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px; /* O el tamaño que tenga tu sidebar */
+  height: 100%; /* Para que ocupe toda la altura de la pantalla */
+  background-color: #283142; /* Color de fondo de la sidebar */
+  z-index: 1000; /* Z-index alto para que esté por encima del header */
 }
 
-.sidebar-url-selected{
-    text-decoration: none; 
-    color: white;
+/* Ajuste del header */
+.header {
+  z-index: 999; /* Asegúrate de que el z-index del header sea menor al de la sidebar */
+  
 }
+.sidebar-logo {
+  display: block; /* Asegura que la imagen ocupe su propio espacio */
+  margin-bottom: 15px; /* Espacio entre la imagen y el texto */
+  width: 100%; /* Asegúrate de que el logo se ajuste al ancho de la barra lateral */
+  height: auto; /* Mantiene la proporción de la imagen */
+}
+
+.sidebar ul {
+  padding-left: 0; /* Quita el padding a la izquierda si no es necesario */
+}
+.sidebar ul li {
+  padding: 10px 15px; /* Espaciado interno */
+  list-style: none; /* Quita las viñetas de la lista */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
+  transition: background-color 0.3s, border-radius 0.3s; /* Transición suave */
+}
+
+.sidebar ul li.active {
+  background-color: #777; /* Color de fondo para el elemento activo */
+  color: white; /* Color del texto para el elemento activo */
+  border-radius: 8px; /* Borde redondeado */
+}
+
+/* Opcional: Estilo para el hover de los elementos de la lista */
+.sidebar ul li:hover {
+  background-color: #555; /* Cambia el color de fondo al pasar el mouse */
+  color: white; /* Color del texto al pasar el mouse */
+  border-radius: 8px; /* Mantiene el borde redondeado en hover */
+}
+
+
+.sidebar ul li:not(.active):hover {
+  background-color: #555; /* Color de fondo para hover de los elementos no activos */
+}
+
+.content {
+  flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+  padding: 2rem; /* Espaciado interno del contenido */
+}
+
+header {
+  display: flex; /* Establece una disposición flexible para el encabezado */
+  justify-content: flex-end; /* Alinea el contenido al final */
+  align-items: center; /* Alinea verticalmente el contenido en el centro */
+  
+}
+
+.user-info {
+  display: flex; /* Disposición flexible para los elementos de usuario */
+  align-items: center; /* Alinea verticalmente el contenido en el centro */
+}
+
+.user-info .pi {
+  font-size: 1.5rem; /* Tamaño de ícono */
+  margin-left: 1rem; /* Espaciado a la izquierda del ícono */
+}
+
+.user-name {
+  margin-left: 1rem; /* Espaciado a la izquierda del nombre del usuario */
+  font-size: 1.2rem; /* Tamaño de fuente para el nombre del usuario */
+}
+
+.notification-count {
+  background-color: #333; /* Color de fondo para el contador de notificaciones */
+  color: white; /* Color del texto del contador */
+  padding: 0.3rem 0.6rem; /* Espaciado interno del contador */
+  border-radius: 50%; /* Bordes redondeados para el contador */
+  font-size: 0.9rem; /* Tamaño de fuente para el contador */
+  margin-left: 0.5rem; /* Espaciado a la izquierda del contador */
+}
+
+.page-title {
+  margin-top: 2rem; /* Margen superior para el título de la página */
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999; /* Este valor es menor al del ícono de hamburguesa */
+}
+
+
+.hamburger-icon {
+  position: fixed; /* Asegúrate de que el ícono esté fijo en la parte superior */
+  top: 20px; /* Ajusta según sea necesario */
+  left: 20px; /* Ajusta según sea necesario */
+  z-index: 1100; /* Mayor que el z-index de la sidebar */
+  cursor: pointer;
+}
+
+/* Estilo para el ícono de hamburguesa */
+.hamburger-icon {
+  background: none;
+  border: none;
+  color: #283142; /* Color predeterminado */
+  cursor: pointer;
+  font-size: 1.5rem; /* Ajusta el tamaño del icono */
+  position: absolute; /* Posiciona de manera absoluta */
+  top: 1rem; /* Espacio desde la parte superior */
+  left: 1rem; /* Espacio desde el lado izquierdo */
+  display: none; /* Oculta por defecto */
+}
+
+.hamburger-icon.active {
+  color: white; /* Cambia el color a blanco cuando está activo */
+}
+
+.hamburger-icon:hover {
+  opacity: 0.7; /* Cambia la opacidad al pasar el mouse */
+}
+/* Mostrar el ícono de hamburguesa solo en dispositivos móviles */
+@media (max-width: 768px) {
+  .hamburger-icon {
+    display: block; /* Muestra el ícono en pantallas pequeñas */
+  }
+
+  .sidebar {
+    position: absolute; /* Posición absoluta para que flote sobre el contenido */
+    top: 0; /* Alinea con la parte superior */
+    left: 0; /* Alínea con el lado izquierdo */
+    width: 250px; /* Ancho de la barra lateral */
+    height: 100vh; /* Altura completa */
+    background-color: #283142; /* Fondo de la barra lateral */
+    color: white; /* Color del texto */
+    transition: transform 0.3s ease; /* Transición suave */
+  }
+
+  .sidebar-logo {
+      display: block;
+      margin-bottom: 15px;
+      margin-top: 40px; /* Aumenta el margen superior */
+      width: 100%;
+      height: auto;
+  }
+
+  /* Oculta la barra lateral fuera de la pantalla */
+  .sidebar.hidden {
+    transform: translateX(-100%); /* Mueve fuera de la vista */
+  }
+}
+
+/* Estilo para el contenido principal */
+.content {
+  padding: 1rem; /* Espacio dentro del contenido */
+  transition: margin-left 0.3s ease; /* Transición suave para el margen */
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+      /* Ajustes específicos para pantallas pequeñas */
+      width: 100%; /* Hacer que la barra lateral ocupe todo el ancho */
+  }
+  
+}
+
+@media (max-width: 768px) {
+  .hamburger-icon {
+      display: block; /* Muestra el ícono en pantallas pequeñas */
+  }
+}
+
+/* Si la barra lateral está visible en vista móvil, el ícono debe ser blanco */
+@media (max-width: 768px) {
+  .hamburger-icon.active {
+      color: white; /* Asegúrate de que sea blanco */
+  }
+}
+
+.notification-bell {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative; /* Mantener el posicionamiento relativo */
+  margin-left: auto; /* Empuja el icono hacia la derecha */
+  margin-top: 0.5rem; /* Añade margen superior para separación */
+  z-index: 20; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.notification-bell i {
+  color: #333; /* Cambia el color según tu tema */
+  font-size: 2rem; /* Tamaño del icono */
+}
+
+.notification-bell:hover {
+  opacity: 0.7; /* Cambia la opacidad al pasar el mouse */
+}
+
+/* Estilos para el contador */
+.notification-count {
+  position: absolute;
+  top: -5px; /* Ajusta según necesites */
+  right: -5px; /* Ajusta según necesites */
+  background-color: red; /* Color de fondo del contador */
+  color: white; /* Color del texto del contador */
+  padding: 0.2rem 0.5rem; /* Espaciado interno del contador */
+  border-radius: 50%; /* Bordes redondeados */
+  font-size: 0.8rem; /* Tamaño de fuente para el contador */
+}
+
+/* Ajustes para pantallas de tamaño celular */
+@media (max-width: 768px) {
+/* Para todos los elementos en la lista (incluidos los activos y no activos) */
+.sidebar ul li:hover {
+    background-color: transparent; /* No cambia el color de fondo en móviles */
+    color: inherit; /* Mantiene el color del texto original */
+    border-radius: 0; /* Elimina el borde redondeado en móviles */
+}
+
+/* Estilos específicos para elementos no activos en pantallas móviles */
+.sidebar ul li:not(.active):hover {
+    background-color: transparent; /* No cambia el fondo en hover */
+    color: inherit; /* Mantiene el color del texto */
+}
+}
+
+@media (max-width: 768px) {
+.sidebar {
+    width: 100%; /* La sidebar ocupa todo el ancho de la pantalla en móvil */
+    height: 100%; /* Altura completa */
+}
+
+/* Si utilizas una clase para activar la sidebar (por ejemplo, .active) */
+.sidebar.active {
+    transform: translateX(0); /* Asegúrate de que la sidebar se desplace correctamente */
+}
+}
+
+.user-info {
+  display: flex; /* Flex para alinear el icono y el menú */
+  align-items: center; /* Alinea verticalmente el contenido en el centro */
+}
+
+.user-button {
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  color: #283142; /* Color del icono */
+  font-size: 2rem; /* Tamaño del icono (ajustado a 2rem) */
+  transition: color 0.3s; /* Transición suave al cambiar el color */
+}
+
+.user-button:hover {
+  color: #555; /* Color del icono al pasar el mouse */
+}
+
+.profile-menu .p-menuitem {
+  padding: 10px 15px; /* Espaciado interno para los elementos del menú */
+  color: #283142; /* Color del texto */
+  text-decoration: none; /* Quita el subrayado */
+}
+
+/* Asegúrate de aplicar esto a los enlaces dentro del menú */
+.profile-menu .p-menuitem a {
+  text-decoration: none; /* Quita el subrayado para los enlaces */
+  color: inherit; /* Hereda el color del elemento padre */
+}
+
+.profile-menu .p-menuitem:hover {
+  background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+}
+
+.profile-menu .p-menuitem-active {
+  background-color: #777; /* Color de fondo para el elemento activo */
+  color: white; /* Color del texto para el elemento activo */
+}
+
+.notification-bell {
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  margin-left: auto; /* Empuja el icono hacia la derecha */
+  margin-top: 0.5rem; /* Añade margen superior para separación */
+  z-index: 20;
+}
+
+.notification-bell i {
+  color: #333; /* Cambia el color según tu tema */
+  font-size: 2rem; /* Tamaño del icono */
+}
+
+.notification-bell:hover {
+  opacity: 0.7; /* Cambia la opacidad al pasar el mouse */
+}
+
+/* Ajustes para el contador de notificaciones */
+.notification-count {
+  position: absolute;
+  top: -5px;
+  right: -1px;
+  background-color: #283142;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.notification-dropdown {
+  display: none; /* Oculta el menú desplegable por defecto */
+  position: absolute; /* Posición absoluta para que flote sobre otros elementos */
+  right: 20px; /* Alineación a la derecha */
+  top: 50px; /* Ajusta según sea necesario */
+  background-color: white; /* Color de fondo del menú */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para el menú */
+  border-radius: 8px; /* Bordes redondeados */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  max-height: 300px; /* Altura máxima */
+  overflow-y: auto; /* Scroll vertical si hay muchas notificaciones */
+}
+
+.notification-dropdown.active {
+  display: block; /* Muestra el menú cuando está activo */
+}
+
+.notification-dropdown ul {
+  list-style: none; /* Quita las viñetas de la lista */
+  padding: 0; /* Quita el padding */
+  margin: 0; /* Quita el margen */
+}
+
+.notification-dropdown ul li {
+  padding: 10px 15px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar sobre los elementos */
+  transition: background-color 0.3s; /* Transición suave */
+}
+
+.notification-dropdown ul li:hover {
+  background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+}
+
+.read {
+  opacity: 0.5; /* Opacidad reducida para indicar que está leída */
+}
+
+

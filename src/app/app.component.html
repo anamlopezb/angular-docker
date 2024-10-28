@@ -1,19 +1,73 @@
-<p-sidebar [(visible)]="isSidebarVisible" (onHide)="hideSideBar()">
-  <a href="/practices" [class]="defineClassHiperlinkSideBarElement('/practices')">
-    <h4>Mis prácticas</h4>
-  </a>
-</p-sidebar>
+<div class="layout-wrapper">
+  <!-- Sidebar -->
+  <nav class="sidebar" [ngClass]="{'hidden': !isSidebarVisible}" aria-label="Main Navigation">
+    <img src="https://ucompensar.edu.co/wp-content/uploads/2022/02/logoblanco.png" alt="Logo" class="sidebar-logo" />
+    <ul role="navigation">
+      <li [class.active]="isActive('/practices')">
+        <a (click)="router.navigate(['/practices'])" aria-label="Mis prácticas">Mis prácticas</a>
+      </li>
+      <li [class.active]="isActive('/manage-practice')">
+        <a (click)="router.navigate(['/manage-practice'])" aria-label="Gestiona tu práctica">Gestiona tu práctica</a>
+      </li>
+      <li [class.active]="isActive('/offers')">
+        <a (click)="router.navigate(['/offers'])" aria-label="Ofertas">Ofertas</a>
+      </li>
+      <li [class.active]="isActive('/applications')">
+        <a (click)="router.navigate(['/applications'])" aria-label="Postulaciones">Postulaciones</a>
+      </li>
+      <li [class.active]="isActive('/scheduling')">
+        <a (click)="router.navigate(['/scheduling'])" aria-label="Agendamiento de encuentros">Agendamiento de
+          encuentros</a>
+      </li>
+      <li [class.active]="isActive('/document-download')">
+        <a (click)="router.navigate(['/document-download'])" aria-label="Descarga de documentos">Descarga de
+          Documentos</a>
+      </li>
+    </ul>
+  </nav>
 
-<div [style]="defineMarginLeftOfContent()">
-  <div>
-    <div class="container-fluid d-flex p-0 header">
-      <div class="d-inline-block">
-        <p-button (onClick)="showSideBar()" icon="pi pi-bars" />
+  <!-- Content -->
+  <div class="content" [style.margin-left]="defineMarginLeftOfContent()">
+    <header>
+      <div class="user-info">
+        <!-- Sidebar Toggle Button -->
+        <button (click)="toggleSidebar()" class="hamburger-icon" [class.active]="isSidebarVisible && isMobileView"
+          aria-label="Toggle Sidebar" [attr.aria-expanded]="isSidebarVisible" aria-controls="notification-dropdown">
+          <i class="pi pi-bars"></i>
+        </button>
+
+        <button class="notification-bell" (click)="toggleNotifications()" aria-label="Show Notifications">
+          <i class="pi pi-bell"></i>
+          <span class="notification-count" *ngIf="unreadCount > 0" aria-live="polite">{{ unreadCount }}</span>
+        </button>
+
+        <!-- Notification Dropdown -->
+        <div class="notification-dropdown" id="notification-dropdown" [class.active]="isNotificationsVisible"
+          role="dialog" aria-labelledby="notification-title" aria-modal="true">
+          <h3 id="notification-title">Notificaciones</h3>
+          <ul>
+            <li *ngFor="let notification of notifications" (click)="markAsRead(notification)" tabindex="0">
+              <strong>{{ notification.summary }}</strong>
+              <p>{{ notification.detail }}</p>
+            </li>
+          </ul>
+        </div>
+
+        <!-- User Profile Dropdown -->
+        <div class="profile-menu">
+            <button pButton type="button" icon="pi pi-user" label="" (click)="menu.toggle($event)" class="user-button"
+              aria-label="User Profile" ></button>
+            <p-menu #menu [model]="items" popup="true" class="profile-menu" aria-label="User Profile Menu"></p-menu>
+          </div>
+          <div>
+            <span class="user-name">Andrés Parra</span>
+          </div>
       </div>
-      <div class="flex-grow-1 text-center ">
-        <img src="https://ucompensar.edu.co/wp-content/uploads/2021/04/main-logo.svg">
-      </div>
-    </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main role="main">
+      <router-outlet></router-outlet>
+    </main>
   </div>
-  <router-outlet />
 </div>
