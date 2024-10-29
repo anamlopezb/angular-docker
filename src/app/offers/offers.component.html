@@ -1,0 +1,58 @@
+<p-table [value]="offers" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nivel</th>
+        <th>Modalidad</th>
+        <th>Empresa</th>
+        <th>Fecha inicio</th>
+        <th>Fecha fin</th>
+        <th>Estado</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-offer>
+      <tr>
+        <td>{{ offer.level }}</td>
+        <td>{{ offer.mode }}</td>
+        <td>{{ offer.company }}</td>
+        <td>{{ offer.startDate }}</td>
+        <td>{{ offer.endDate }}</td>
+        <td>{{ offer.status }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+  
+  <button pButton label="Hoja de Vida" (click)="showResumeForm()"></button>
+  
+  <p-dialog [(visible)]="displayResumeForm" header="Hoja de Vida" [modal]="true" [style]="{ width: '40vw' }" (onHide)="resetForm()">
+    <div class="resume-form-container">
+      <div class="resume-form-header">Información del Usuario</div>
+      
+      <!-- Información del Usuario -->
+      <label class="resume-form-label">Nombre Completo: {{ userData.fullName }}</label>
+      <label class="resume-form-label">Número de Identificación: {{ userData.idNumber }}</label>
+      <label class="resume-form-label">Correo Electrónico: {{ userData.email }}</label>
+      
+      <!-- Formulario -->
+      <label class="resume-form-label">Número de Contacto:</label>
+      <input type="text" [(ngModel)]="resumeForm.contactNumber" class="resume-form-input" placeholder="Ingrese su número de contacto" />
+      
+      <label class="resume-form-label">Dirección:</label>
+      <input type="text" [(ngModel)]="resumeForm.address" class="resume-form-input" placeholder="Ingrese su dirección" />
+      
+      <label class="resume-form-label">Tipo de Vinculación:</label>
+      <select [(ngModel)]="resumeForm.employmentType" class="resume-form-select" >
+        <option *ngFor="let option of employmentOptions" [value]="option.value">{{ option.label }}</option>
+      </select>
+      
+      <label class="resume-form-label">Perfil Laboral:</label>
+      <textarea [(ngModel)]="resumeForm.jobProfile" class="resume-form-input" placeholder="Ingrese su perfil laboral"></textarea>
+      
+      <div class="resume-form-button-container">
+        <button class="cancel-button" (click)="resetForm()">Cancelar</button>
+        <button class="submit-button" (click)="onSubmit()">Guardar</button>
+      </div>
+    </div>
+  </p-dialog>
+  
+  
+  
