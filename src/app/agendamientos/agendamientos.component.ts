@@ -16,6 +16,7 @@ import { ButtonModule } from 'primeng/button';
 })
 export class AgendamientosComponent {
   applications = [
+    //datos quemados
     {code: '11/07/2024',
       name: 'Bancolombia',
       state: 'Agendado',
