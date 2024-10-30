@@ -1,0 +1,34 @@
+.header{
+    margin-bottom: 50px;
+}
+
+::ng-deep .custom-button {
+    background-color: black; 
+    color: white;        
+    width: 175px;    
+    border-radius: 20px;    
+    padding: 10px 20px;     
+    border: none;           
+  }
+
+.c1-estilo{
+    background-color: #f7f7f7; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+}
+
+.c2-estilo{
+    background-color: #f7f7f7; 
+    padding: 10px; 
+    margin-bottom: 10px; 
+}   
+
+::ng-deep .custom-dropdown .p-dropdown-label {
+    width: 400px;
+    border-radius: 40px;
+    padding: 10px;
+}
+
+::ng-deep .custom-calendar .p-inputtext {
+    width: 400px; /* Ajusta el ancho a tu preferencia */
+  }

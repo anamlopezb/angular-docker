@@ -1,0 +1,89 @@
+<header class="header">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-sm-7 col-md-9">
+                <h2>Agendamiento de encuentros</h2>
+            </div>
+            <div class="col-sm-5 col-md-3 text-md-right">
+                <p-button label="Agendamientos" styleClass="custom-button" (click)="redirigir()"></p-button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container px-2">
+    <div class="container c1-estilo">
+        <div class="container-fluid c2-estilo">
+            <div class="row">
+                <div class="col-12">
+                    <h5>Docente: {{Docente}} </h5>
+                </div>
+            </div>
+        <div class="container-fluid c2-estilo">
+            <div>
+                <h4>Tipo de encuentro</h4>
+            </div>
+            <div>
+                <p-dropdown 
+                [options]="opcions" 
+                [(ngModel)]="selectedopcion" 
+                optionLabel="opcion" 
+                placeholder="Seleccionar" 
+                [styleClass]="'custom-dropdown'"
+                />
+            </div>
+        </div>
+    
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Primer objeto (columna) -->
+                <div class="col-md-6">
+                    <div>
+                        <p-calendar 
+                        class="max-w-full" 
+                        [(ngModel)]="date" 
+                        [inline]="true" 
+                        [showWeek]="true" 
+                        />   
+                    </div>
+                </div>
+                <!-- columna de seleccion de hora y datos seleccionados -->
+                <div class="col-md-6">
+                    <div>
+                        <h4>Hora</h4>
+                    </div>
+                    <div>
+                        <p-calendar 
+                            [(ngModel)]="date" 
+                            [iconDisplay]="'input'" 
+                            [showIcon]="true" 
+                            [timeOnly]="true" 
+                            inputId="templatedisplay"
+                            [styleClass]="'custom-calendar'">
+                            <ng-template pTemplate="inputicon" let-clickCallBack="clickCallBack">
+                                <i class="pi pi-user pointer-events-none" (click)="clickCallBack($event)"></i>
+                            </ng-template>
+                        </p-calendar>
+                    </div>
+                    <!-- datos seleccionados -->
+                    <div>
+                        <div>
+                            <p *ngIf="!date">Fecha:{{ date | date:'fullDate' }}</p>
+                            <p *ngIf="date">Fecha: {{ date | date:'fullDate' }}</p>
+                            <p>Hora:</p>
+                            <div class="row">
+                                <p>Motivo:</p>
+                            <p *ngIf="selectedopcion"> {{ selectedopcion.opcion }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <p-button label="Confirmar" styleClass="custom-button" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+  

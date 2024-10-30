@@ -1,27 +1,27 @@
-<!-- src/app/practices/practices.component.html -->
 <div class="container">
-    <h1>Mis prácticas</h1>
-    <p-table [value]="practices" [tableStyle]="{ 'min-width': '50rem', 'margin-top': '0.5rem'}">
+<h1>
+        Mis prácticas
+</h1>
+<p-table [value]="products" [tableStyle]="{ 'min-width': '50rem' }">
       <ng-template pTemplate="header">
         <tr>
-          <th>Nivel</th>
-          <th>Modalidad</th>
-          <th>Empresa</th>
-          <th>Fecha inicio</th>
-          <th>Fecha fin</th>
-          <th>Estado</th>
+        <th>Nivel</th>
+        <th>Modalidad</th>
+        <th>Empresa</th>
+        <th>Fecha inicio</th>
+        <th>Fecha fin</th>
+        <th>Estado</th>
         </tr>
       </ng-template>
-      <ng-template pTemplate="body" let-practica>
-        <tr>
-          <td>{{ practica.postulacion.oferta.nivel_practica.nombre }}</td>           <!-- Asegúrate de que estas propiedades existan en tu objeto -->
-          <td>{{ practica.postulacion.oferta.modalidad_practica.nombre }}</td>
-          <td>{{ practica.postulacion.oferta.empresa.nombre }}</td>
-          <td>{{ practica.fecha_inicio }}</td>
-          <td>{{ practica.fecha_fin }}</td>
-          <td>{{ practica.estado_practica.nombre }}</td>
-        </tr>
-      </ng-template>
-    </p-table>
-  </div>
-  
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.code }}</td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.quantity }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

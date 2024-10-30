@@ -12,11 +12,11 @@
       <li [class.active]="isActive('/offers')">
         <a (click)="router.navigate(['/offers'])" aria-label="Ofertas">Ofertas</a>
       </li>
-      <li [class.active]="isActive('/applications')">
-        <a (click)="router.navigate(['/applications'])" aria-label="Postulaciones">Postulaciones</a>
-      </li>
-      <li [class.active]="isActive('/scheduling')">
-        <a (click)="router.navigate(['/scheduling'])" aria-label="Agendamiento de encuentros">Agendamiento de
+      <li [class.active]="isActive('/postulaciones')">
+        <a (click)="router.navigate(['/postulaciones'])" aria-label="Postulaciones">Postulaciones</a>
+    </li>
+      <li [class.active]="isActive('/encuentros')">
+        <a (click)="router.navigate(['/encuentros'])" aria-label="Agendamiento de encuentros">Agendamiento de
           encuentros</a>
       </li>
       <li [class.active]="isActive('/document-download')">
