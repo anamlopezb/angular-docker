@@ -16,7 +16,7 @@ import { FormsModule } from '@angular/forms';
 export class OffersComponent {
   offers = [
     { level: 'Tecnico', mode: 'Presencial', company: 'Tech Corp', startDate: '2023-01-15', endDate: '2023-06-15', status: 'Activo' },
-    // Más datos de ejemplo
+    // Más datos de ejemplo asdasdsadadasasdasadsad
   ];
 
   displayResumeForm = false; // Controla la visibilidad del formulario de hoja de vida
