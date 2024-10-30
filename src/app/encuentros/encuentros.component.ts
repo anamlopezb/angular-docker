@@ -37,7 +37,7 @@ export class EncuentrosComponent {
   date?: Date;
 
   constructor(private router: Router) {}
-
+  //metodo para hacer el rediccionamiento 
   redirigir() {
     this.router.navigate(['/agendamientos']); // Cambia '/agendamientos' por la ruta deseada
   }
