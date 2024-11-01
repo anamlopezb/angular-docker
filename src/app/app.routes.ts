@@ -11,5 +11,19 @@ export const routes: Routes = [
   { path: 'offers', component: OffersComponent },
   { path: 'document-download', component: DocumentDownloadComponent },
   { path: 'encuentros', component: EncuentrosComponent},
-  { path: 'agendamientos',  component: AgendamientosComponent}
+  { path: 'agendamientos',  component: AgendamientosComponent},
+  {
+    path: 'postulaciones',
+    component: PostulacionesComponent
+},
+{
+    path: 'encuentros',
+    component: EncuentrosComponent
+},
+
+{
+  path: 'agendamientos',
+  component: AgendamientosComponent
+}
+
 ];
