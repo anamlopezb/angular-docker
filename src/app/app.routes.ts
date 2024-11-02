@@ -19,11 +19,6 @@ export const routes: Routes = [
 {
     path: 'encuentros',
     component: EncuentrosComponent
-},
-
-{
-  path: 'agendamientos',
-  component: AgendamientosComponent
 }
 
 ];

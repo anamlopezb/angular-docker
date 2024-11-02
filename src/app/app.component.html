@@ -1,6 +1,8 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 <div class="layout-wrapper">
   <!-- Sidebar -->
-  <nav class="sidebar" [ngClass]="{'hidden': !isSidebarVisible}" aria-label="Main Navigation">
+  <nav class="sidebar" #sidebar [ngClass]="{'hidden': !isSidebarVisible}" aria-label="Main Navigation">
     <img src="https://ucompensar.edu.co/wp-content/uploads/2022/02/logoblanco.png" alt="Logo" class="sidebar-logo" />
     <ul role="navigation">
       <li [class.active]="isActive('/practices')">
@@ -14,57 +16,43 @@
       </li>
       <li [class.active]="isActive('/postulaciones')">
         <a (click)="router.navigate(['/postulaciones'])" aria-label="Postulaciones">Postulaciones</a>
-    </li>
+      </li>
       <li [class.active]="isActive('/encuentros')">
-        <a (click)="router.navigate(['/encuentros'])" aria-label="Agendamiento de encuentros">Agendamiento de
-          encuentros</a>
+        <a (click)="router.navigate(['/encuentros'])" aria-label="Agendamiento de encuentros">Agendamiento de encuentros</a>
       </li>
       <li [class.active]="isActive('/document-download')">
-        <a (click)="router.navigate(['/document-download'])" aria-label="Descarga de documentos">Descarga de
-          Documentos</a>
+        <a (click)="router.navigate(['/document-download'])" aria-label="Descarga de documentos">Descarga de documentos</a>
       </li>
     </ul>
   </nav>
 
-  <!-- Content -->
-  <div class="content" [style.margin-left]="defineMarginLeftOfContent()">
-    <header>
-      <div class="user-info">
-        <!-- Sidebar Toggle Button -->
-        <button (click)="toggleSidebar()" class="hamburger-icon" [class.active]="isSidebarVisible && isMobileView"
-          aria-label="Toggle Sidebar" [attr.aria-expanded]="isSidebarVisible" aria-controls="notification-dropdown">
-          <i class="pi pi-bars"></i>
+  <header>
+    <div>
+      <!-- Sidebar Toggle Button -->
+      <button class="hamburger-icon" (click)="toggleSidebar()" [ngClass]="{'active': !isSidebarVisible}">
+        <i class="pi pi-bars" style="font-size: 1.5rem"></i>
+      </button>
+    </div>
+
+      <!-- Notification Bell Icon -->
+       <div>
+      <button class="notification-bell" (click)="toggleNotifications()" aria-label="Show Notifications">
+        <i class="pi pi-bell" style="font-size: 1.5rem"></i>
+        <span class="notification-count"  *ngIf="unreadCount > 0" aria-live="polite">{{ unreadCount }}</span>
+      </button>
+    </div>
+
+      <!-- Profile Dropdown -->
+      <div class="profile-menu">
+        <button type="button" class="user-button" aria-label="User Profile">
+          <i class="pi pi-user" style="font-size: 1.5rem"></i>
         </button>
-
-        <button class="notification-bell" (click)="toggleNotifications()" aria-label="Show Notifications">
-          <i class="pi pi-bell"></i>
-          <span class="notification-count" *ngIf="unreadCount > 0" aria-live="polite">{{ unreadCount }}</span>
-        </button>
-
-        <!-- Notification Dropdown -->
-        <div class="notification-dropdown" id="notification-dropdown" [class.active]="isNotificationsVisible"
-          role="dialog" aria-labelledby="notification-title" aria-modal="true">
-          <h3 id="notification-title">Notificaciones</h3>
-          <ul>
-            <li *ngFor="let notification of notifications" (click)="markAsRead(notification)" tabindex="0">
-              <strong>{{ notification.summary }}</strong>
-              <p>{{ notification.detail }}</p>
-            </li>
-          </ul>
-        </div>
-
-        <!-- User Profile Dropdown -->
-        <div class="profile-menu">
-            <button pButton type="button" icon="pi pi-user" label="" (click)="menu.toggle($event)" class="user-button"
-              aria-label="User Profile" ></button>
-            <p-menu #menu [model]="items" popup="true" class="profile-menu" aria-label="User Profile Menu"></p-menu>
-          </div>
-          <div>
-            <span class="user-name">Andrés Parra</span>
-          </div>
+        <span class="user-name">Andrés Parra</span>
       </div>
-    </header>
+  </header>
 
+  <!-- Content -->
+  <div class="content">
     <!-- Main Content Area -->
     <main role="main">
       <router-outlet></router-outlet>

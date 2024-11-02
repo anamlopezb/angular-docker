@@ -6,8 +6,12 @@ import { SidebarModule } from 'primeng/sidebar';
 import { CommonModule } from '@angular/common';
 import { ToastModule } from 'primeng/toast';
 import { MenuItem, MessageService } from 'primeng/api';
-import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
 import { MenuModule } from 'primeng/menu';
+import { StepsModule } from 'primeng/steps';
+import { DropdownModule } from 'primeng/dropdown';
+import { MenubarModule } from 'primeng/menubar';
+import { AvatarModule } from 'primeng/avatar';
+import { BadgeModule } from 'primeng/badge';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +24,11 @@ import { MenuModule } from 'primeng/menu';
     RouterOutlet,
     ToastModule,
     MenuModule,
-    HttpClientModule,
+    StepsModule,
+    DropdownModule,
+    MenubarModule,
+    AvatarModule,
+    BadgeModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -39,34 +47,12 @@ export class AppComponent {
     { severity: 'error', summary: 'Error', detail: 'Notificación 4: Ocurrió un error.' },
   ];
 
-  items: MenuItem[] = [];
   unreadCount = this.notifications.length; // Contador de notificaciones no leídas
 
   constructor(public router: Router, private messageService: MessageService) {
     this.checkScreenSize();
   }
-
-  ngOnInit() {
-    this.items = [
-      {
-        label: 'Ver Perfil',
-        icon: 'pi pi-user',
-        command: () => {
-          // Lógica para redirigir al perfil
-          console.log('Ver perfil');
-        }
-      },
-      {
-        label: 'Cerrar Sesión',
-        icon: 'pi pi-sign-out',
-        command: () => {
-          // Lógica para cerrar sesión
-          console.log('Cerrar sesión');
-        }
-      }
-    ];
-  }
-
+     
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.checkScreenSize();
@@ -85,10 +71,6 @@ export class AppComponent {
     return this.isSidebarVisible ? '20em' : '0em';
   }
 
-  isActive(route: string) {
-    return this.router.url === route;
-  }
-
   showNotifications() {
     this.notifications.forEach(notification => {
       this.messageService.add(notification);
@@ -99,19 +81,16 @@ export class AppComponent {
   resetNotifications() {
     this.unreadCount = 0; // Establece el contador de notificaciones no leídas a cero
   }
-
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
-    if (this.isSidebarVisible) {
-      setTimeout(() => {
-        const firstMenuItem = document.querySelector('.sidebar ul li') as HTMLElement;
-        firstMenuItem?.focus();
-      }, 300);
-    }
+  }
+
+  isActive(route: string): boolean {
+    return this.router.url === route; // Activa la clase 'active' para la ruta actual
   }
 
   toggleNotifications() {
-    this.isNotificationsVisible = !this.isNotificationsVisible; // Alternar visibilidad del menú de notificaciones
+    this.isNotificationsVisible = !this.isNotificationsVisible; 
   }
 
   
@@ -120,4 +99,5 @@ markAsRead(notification: any) {
   notification.isRead = true; // Marcar la notificación como leída
   this.unreadCount--; // Reducir el contador de notificaciones no leídas
 }
+
 }
