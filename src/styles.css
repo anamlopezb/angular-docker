@@ -2,3 +2,37 @@
 .p-sidebar{
     background-color: #222222;
 }
+
+p-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos del botón de envío */
+.submit-button {
+    padding: 10px 25px;
+    background-color: #283142; /* Color de fondo */
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.2s; /* Efecto suave */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+}
+
+/* Contenedor del botón en la esquina inferior derecha */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Alineación a la derecha */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    margin-top: 20px;
+}
+
+.submit-button:hover {
+    background-color: #4b4f54; /* Color al pasar el mouse */
+    transform: scale(1.05); /* Efecto de escala */
+}
+
+.submit-button:active {
+    background-color: #555; /* Color al hacer clic */
+}
