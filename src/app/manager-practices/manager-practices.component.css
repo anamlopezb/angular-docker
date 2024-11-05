@@ -1,0 +1,39 @@
+.form-container {
+    margin-top: 1rem;
+}
+
+.navigation-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 3rem; /* Incrementa el valor del margen */
+    padding-top: 1rem; /* Alternativa para agregar espacio adicional */
+}
+
+.submit-button {
+    padding: 10px 20px;
+    background-color: #283142;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 1rem; /* Agregar margen superior directamente a cada botón */
+}
+
+/* Añadir espacio entre los botones */
+.submit-button:first-child {
+    margin-right: 10px;
+}
+
+/* Estilo al pasar el cursor cuando el botón está activo */
+.submit-button:hover:enabled {
+    background-color: #6d6c6c;
+}
+
+/* Estilo cuando el botón está desactivado */
+.submit-button:disabled {
+    background-color: #a9a9a9;
+    cursor: not-allowed;
+    color: #dcdcdc;
+}

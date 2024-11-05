@@ -5,6 +5,7 @@ import { DocumentDownloadComponent } from './document-download/document-download
 import { PostulacionesComponent } from './postulaciones/postulaciones.component';
 import { EncuentrosComponent } from './encuentros/encuentros.component';
 import { AgendamientosComponent } from './agendamientos/agendamientos.component';
+import { ManagerPracticesComponent } from './manager-practices/manager-practices.component';
 
 export const routes: Routes = [
   { path: 'practices', component: PracticesComponent },
@@ -12,13 +13,8 @@ export const routes: Routes = [
   { path: 'document-download', component: DocumentDownloadComponent },
   { path: 'encuentros', component: EncuentrosComponent},
   { path: 'agendamientos',  component: AgendamientosComponent},
-  {
-    path: 'postulaciones',
-    component: PostulacionesComponent
-},
-{
-    path: 'encuentros',
-    component: EncuentrosComponent
-}
+  { path: 'postulaciones', component: PostulacionesComponent},
+  { path: 'encuentros', component: EncuentrosComponent },
+  { path: 'manager-practices', component: ManagerPracticesComponent}
 
 ];
