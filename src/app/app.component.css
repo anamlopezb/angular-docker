@@ -51,12 +51,6 @@
   }
 }
 
-@media (min-width: 1024px) {
-  .sidebar {
-    position: fixed;
-  }
-}
-
 .sidebar.hidden {
   display: none;
 }
@@ -96,7 +90,7 @@
 header {
   position: fixed;
   top: 0;
-  left: 250px;
+  left: 300px; /* Ajustado para que no se superponga a la barra lateral */
   right: 0;
   height: 60px;
   background-color: white;
@@ -105,7 +99,8 @@ header {
   justify-content: flex-end;
   align-items: center;
   padding: 0 20px;
-  width: calc(100% - 250px);
+  width: calc(100% - 300px);
+  z-index: 1001; /* Z-index alto para que esté por encima de los elementos de la barra lateral */
 }
 
 .header-container {
@@ -114,7 +109,11 @@ header {
   align-items: center;
 }
 
-.hamburger-icon, 
+/* Ocultar el ícono de hamburguesa en pantallas grandes */
+.hamburger-icon {
+  display: none; /* Ocultar en pantallas grandes */
+}
+
 .notification-bell,
 .user-button {
   background: none;
@@ -144,6 +143,38 @@ header {
   justify-content: center;
   align-items: center;
   font-size: 12px;
+}
+
+/* Estilos para las notificaciones */
+.notification-dropdown {
+  position: absolute; /* Posición absoluta respecto al contenedor padre */
+  top: 60px; /* Ajusta la posición vertical según sea necesario */
+  right: 20px; /* Ajusta la posición horizontal según sea necesario */
+  background-color: white; /* Color de fondo */
+  border: 1px solid #ccc; /* Borde */
+  border-radius: 4px; /* Bordes redondeados */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+  z-index: 9999; /* Asegúrate de que tenga un z-index alto */
+  display: block; /* Asegúrate de que se muestre cuando isNotificationsVisible sea true */
+}
+
+.notification-dropdown ul {
+  list-style: none; /* Quitar estilo de lista */
+  padding: 0; /* Sin padding */
+  margin: 0; /* Sin margen */
+}
+
+.notification-dropdown li {
+  padding: 10px 15px; /* Espaciado interno */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+}
+
+.notification-dropdown li:hover {
+  background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+}
+
+.unread {
+  font-weight: bold; /* Resaltar notificaciones no leídas */
 }
 
 /* Media queries para pantallas más pequeñas */
@@ -188,7 +219,7 @@ header {
   }
   
   .user-name {
-    display: none;
+    display: none; /* Ocultar nombre de usuario en pantallas pequeñas */
   }
 
   .notification-count {
@@ -197,8 +228,9 @@ header {
     font-size: 10px;
   }
 
-  /* Asegura que el ícono de hamburguesa esté visible sobre la nav */
+  /* Asegura que el ícono de hamburguesa esté visible sobre la nav en móviles */
   .hamburger-icon {
+    display: block; /* Mostrar en pantallas pequeñas */
     position: fixed;
     top: 10px;
     left: 10px;
@@ -225,23 +257,23 @@ header {
 /* Estilos del contenido */
 .content {
   padding: 10px;
-  margin-left: 312px;
-  margin-top: 70px;
-  margin-right: 10px;
+  margin-left: 312px; /* Espaciado a la izquierda para el contenido */
+  margin-top: 70px; /* Espaciado superior para el contenido */
+  margin-right: 10px; /* Espaciado a la derecha para el contenido */
 }
 
 /* Media queries para ajustar el contenido en tablets y móviles */
 @media (max-width: 1024px) {
   .content {
-    margin-left: 260px;
-    margin-top: 60px;
+    margin-left: 260px; /* Ajustar margen izquierdo para tablets */
+    margin-top: 60px; /* Ajustar margen superior para tablets */
   }
 }
 
 @media (max-width: 768px) {
   .content {
-    margin-left: 0;
-    margin-top: 60px;
-    padding: 10px 5px;
+    margin-left: 0; /* Eliminar margen izquierdo en móviles */
+    margin-top: 60px; /* Mantener margen superior en móviles */
+    padding: 10px 5px; /* Ajustar padding en móviles */
   }
 }

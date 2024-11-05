@@ -36,18 +36,18 @@ import { BadgeModule } from 'primeng/badge';
 })
 export class AppComponent {
   title = 'angular-docker';
-  isSidebarVisible = true; // Barra lateral visible por defecto
-  isMobileView = false; // Para controlar la vista móvil
-  isNotificationsVisible = false; // Para controlar la visibilidad del menú de notificaciones
+  isSidebarVisible = true; // Sidebar is visible by default
+  isMobileView = false; // To control mobile view
+  isNotificationsVisible = false; // To control notifications menu visibility
 
   notifications = [
-    { severity: 'success', summary: 'Éxito', detail: 'Notificación 1: Operación exitosa.' },
-    { severity: 'info', summary: 'Información', detail: 'Notificación 2: Aquí hay información importante.' },
-    { severity: 'warn', summary: 'Advertencia', detail: 'Notificación 3: Advertencia sobre una operación.' },
-    { severity: 'error', summary: 'Error', detail: 'Notificación 4: Ocurrió un error.' },
+    { severity: 'success', summary: 'Éxito: Operación exitosa.', isRead: false },
+    { severity: 'info', summary: 'Información: Aquí hay información importante.', isRead: false },
+    { severity: 'warn', summary: 'Advertencia: Advertencia sobre una operación.', isRead: false },
+    { severity: 'error', summary: 'Error: Ocurrió un error.', isRead: false },
   ];
 
-  unreadCount = this.notifications.length; // Contador de notificaciones no leídas
+  unreadCount = this.notifications.filter(n => !n.isRead).length; // Unread notifications counter
 
   constructor(public router: Router, private messageService: MessageService) {
     this.checkScreenSize();
@@ -63,41 +63,29 @@ export class AppComponent {
     this.isSidebarVisible = !this.isMobileView;
   }
 
-  defineClassHiperlinkSideBarElement(url: string) {
-    return this.router.url === url ? 'sidebar-url-selected' : 'sidebar-urls';
-  }
-
-  defineMarginLeftOfContent() {
-    return this.isSidebarVisible ? '20em' : '0em';
-  }
-
   showNotifications() {
     this.notifications.forEach(notification => {
       this.messageService.add(notification);
     });
-    this.resetNotifications(); // Reinicia el contador de notificaciones
   }
 
-  resetNotifications() {
-    this.unreadCount = 0; // Establece el contador de notificaciones no leídas a cero
-  }
   toggleSidebar() {
     this.isSidebarVisible = !this.isSidebarVisible;
   }
 
   isActive(route: string): boolean {
-    return this.router.url === route; // Activa la clase 'active' para la ruta actual
+    return this.router.url === route; // Activate 'active' class for the current route
   }
 
   toggleNotifications() {
     this.isNotificationsVisible = !this.isNotificationsVisible; 
-  }
-
-  
-// Función para marcar una notificación como leída
-markAsRead(notification: any) {
-  notification.isRead = true; // Marcar la notificación como leída
-  this.unreadCount--; // Reducir el contador de notificaciones no leídas
+    if (this.isNotificationsVisible) {
+        // Mostrar las notificaciones aquí (opcional si ya se están mostrando en el HTML)
+    }
 }
 
+  markAsRead(notification: any) {
+    notification.isRead = true; // Mark notification as read
+    this.unreadCount--; // Decrease unread notifications count
+  }
 }
