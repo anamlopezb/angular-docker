@@ -30,6 +30,15 @@
   cursor: pointer;
   transition: background-color 0.3s, border-radius 0.3s;
   margin-bottom: 10px;
+  display: block; /* Permite que el <li> ocupe todo el ancho */
+  width: 100%; /* Asegura que el <li> ocupe todo el ancho disponible */
+}
+
+.sidebar ul li a {
+  display: block; /* Hace que el enlace ocupe toda el área del li */
+  width: 100%;
+  color: inherit; /* Hereda el color del texto del li */
+  text-decoration: none; /* Elimina la subrayado del enlace */
 }
 
 .sidebar ul li.active {
