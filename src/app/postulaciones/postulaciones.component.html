@@ -1,8 +1,8 @@
-<div class="container">
+
     <h1>
-        postulaciones
+        Postulaciones
     </h1>
-    <p-table [value]="applications" [tableStyle]="{ 'min-width': '50rem' }">
+    <p-table [value]="applications" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }">>
         <ng-template pTemplate="header">
             <tr>
                 <th>Fecha</th>
@@ -18,7 +18,9 @@
                 <td>{{ applications.name }}</td>
                 <td>{{ applications.statef }}</td>
                 <td>{{ applications.observations }}</td>
-                <td><p-button label="Descargar carta " [rounded]="true" severity="contrast" styleclass="profile-button" /></td>
+                <td><p-button icon="pi pi-download" label="Descargar carta" [rounded]="true" severity="contrast"
+                    styleClass="resume-button"></p-button>
+                </td>
             </tr>
             <tr>
                 <td>{{ applications.code }}</td>
@@ -43,4 +45,3 @@
             </tr>
         </ng-template>
     </p-table>
-</div>

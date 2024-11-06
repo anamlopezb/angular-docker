@@ -17,31 +17,21 @@
     color: #333;
 }
 
-.profile-button {
-    background-color: #007ad9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
+::ng-deep .resume-button {
+    padding: 10px 25px;
+    background-color: #cbcaca !important; /* Gris claro */
+    color: #283142 !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    transition: background-color 0.3s, transform 0.2s !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
 }
 
-.profile-button:hover {
-    background-color: #000000;
+::ng-deep .resume-button:hover {
+    background-color: #283142 !important; /* Azul oscuro */
+    transform: scale(1.05) !important;
+    color: #f9f9f9 !important;
 }
 
-p-table {
-    width: 100%;
-}
-
-p-table th {
-    background-color: #007ad9;
-    color: #fff;
-    font-weight: bold;
-    padding: 10px;
-    text-align: left;
-}
-
-
-
-p-table tr:hover {
-    background-color: #f1f1f1;
-}

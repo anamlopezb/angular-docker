@@ -1,5 +1,11 @@
-<p-table [value]="offers" [tableStyle]="{ 'min-width': '50rem' }">
-    <ng-template pTemplate="header">
+<div class="header-container">  
+  <button pButton label="Hoja de Vida" (click)="showResumeForm()" class="resume-button"></button>
+</div>
+
+<h1>Ofertas</h1>
+
+<p-table [value]="offers" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
       <tr>
         <th>Nivel</th>
         <th>Modalidad</th>
@@ -21,7 +27,7 @@
     </ng-template>
   </p-table>
   
-  <button pButton label="Hoja de Vida" (click)="showResumeForm()"></button>
+ 
   
   <p-dialog [(visible)]="displayResumeForm" header="Hoja de Vida" [modal]="true" [style]="{ width: '40vw' }" (onHide)="resetForm()">
     <div class="resume-form-container">
