@@ -2,11 +2,18 @@
     margin: 20px;
   }
   
-  h1 {
-    font-size: 1.8rem;
-    color: #333;
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
   }
-  
+ 
   .form-header {
     margin-bottom: 20px;
   }
@@ -112,3 +119,25 @@
     background-color: #c82333;
   }
   
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+  
+  .resume-button {
+    padding: 10px 25px;
+      background-color: #283142; /* Color de fondo */
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s, transform 0.2s; /* Efecto suave */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra del botón */
+  }   
+  
+  .resume-button:hover {
+    background-color: #4b4f54; /* Color al pasar el mouse */
+    transform: scale(1.05); /* Efecto de escala */
+  }

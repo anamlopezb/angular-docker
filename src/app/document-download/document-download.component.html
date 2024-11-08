@@ -1,9 +1,7 @@
-<div class="header">
-    <h1>Descarga de Documentos</h1>
-</div>
 
-<div class="container">
-    <p-table [value]="documents" [tableStyle]="{ 'min-width': '50rem' }">
+    <h1>Descarga de Documentos</h1>
+
+    <p-table [value]="documents" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }">>
         <ng-template pTemplate="header">
             <tr>
                 <th>Documentos</th>
@@ -14,10 +12,11 @@
             <tr>
                 <td>{{ document.name }}</td>
                 <td>
-                    <button pButton label="Ver" icon="pi pi-eye" class="p-button-info" (click)="viewDocument(document.url)"></button>
-                    <button pButton label="Descargar" icon="pi pi-download" class="p-button-success" (click)="downloadDocument(document.url, document.name)"></button>
+                    <button pButton label="Ver" icon="pi pi-eye" class="resume-button" (click)="viewDocument(document.url)"></button>
+                    <button pButton label="Descargar" icon="pi pi-download" class="resume-button" (click)="downloadDocument(document.url, document.name)"></button>
                 </td>
             </tr>
         </ng-template>
     </p-table>
-</div>
+
+    
