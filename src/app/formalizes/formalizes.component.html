@@ -1,28 +1,33 @@
 <div class="form-container">
-    <h2>Formulario Inicial</h2>
-    <p class="form-text" style="text-align: justify;">
-        La práctica empresarial es una vivencia académica - laboral, que otorga al estudiante una experiencia en la que
-        tiene la oportunidad de integrar, aplicar y reafirmar las competencias adquiridas dentro del aula hacia escenarios
-        reales.
-        <br /><br />
-        Declaro que conozco el Manual General de Prácticas Empresariales de la Fundación Universitaria Compensar, así
-        como los lineamientos que lo rigen.
-        <br /><br />
-        Nota: El diligenciamiento de este formulario lo habilita para dar inicio a su proceso de Práctica Empresarial.
-        <br /><br />
-        Para seleccionar la modalidad que se ajusta a sus necesidades, es fundamental profundizar en el MANUAL GENERAL
-        DE PRÁCTICAS EMPRESARIALES, Numeral 11, y/o consulta con su docente asignado.
-    </p>
+  <h2>Formaliza tu práctica</h2>
+<p-table [value]="documents" responsiveLayout="scroll" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Documento Solicitado</th>
+      <th>Nombre del Documento</th>
+      <th>Tamaño</th>
+      <th>Tipo</th>
+      <th>Acciones</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-documento>
+    <tr>
+      <td>{{ documento.requestedDocument }}</td>
+      <td>{{ documento.name || 'Sin archivo' }}</td>
+      <td>{{ documento.size ? (documento.size + ' KB') : 'N/A' }}</td>
+      <td>{{ documento.type || 'N/A' }}</td>
+      <td>
+        <!-- Botón para subir documento -->
+        <input type="file" hidden #fileUpload (change)="onFileUpload($event, documento)" />
+        <button pButton label="Subir" icon="pi pi-upload" class="resume-button" (click)="fileUpload.click()"></button>
 
-    <select id="modalidad" name="modalidad" required (change)="mostrarTexto()" [(ngModel)]="selectedModalidad">
-        <option *ngFor="let modalidad of modalidades" [ngValue]="modalidad.value">{{ modalidad.label }}</option>
-    </select>
+        <!-- Botón para ver el documento -->
+        <button pButton label="Ver" icon="pi pi-eye" class="resume-button" (click)="viewDocument(documento)" [disabled]="!documento.fileUrl"></button>
 
-    <div *ngIf="textoModalidad" class="modalidad-text">
-        {{ textoModalidad }}
-    </div>
-
-    <div class="button-container">
-        <button pButton type="button" label="Enviar" class="submit-button" (click)="onSubmit()"></button>
-    </div>
+        <!-- Botón para eliminar el archivo asociado -->
+        <button pButton label="Eliminar" icon="pi pi-trash" class="resume-button" (click)="removeFile(documento)" [disabled]="!documento.fileUrl"></button>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
 </div>
