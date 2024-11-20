@@ -1,10 +1,11 @@
-<p-stepper (onSelect)="onStepSelect($event)">
+<p-stepper (onSelect)="onStepSelect($event)" class="header-card">
     <p-stepperPanel *ngFor="let item of items; let i = index" [header]="item.label">
         <ng-template pTemplate="content" let-prevCallback="prevCallback" let-nextCallback="nextCallback">
             <div class="flex flex-column h-12rem">
                 <ng-container [ngSwitch]="item.content"> 
                     <app-formalizes *ngSwitchCase="'formalize'"></app-formalizes>
                     <app-registration-practices *ngSwitchCase="'registration'"></app-registration-practices>
+                    <app-closing *ngSwitchCase="'closing'"></app-closing>
                     <div *ngSwitchDefault>
                         <p>Contenido no disponible para este paso.</p>
                     </div>
