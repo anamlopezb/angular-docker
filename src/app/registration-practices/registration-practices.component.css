@@ -21,14 +21,6 @@
     width: 100%;
 }
 
-/*Fomulario*/
-.form-grid  {
-    display: grid;
-    grid-template-columns: 1fr 1fr;                                                                 
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
 /* Título del formulario */
 h2 {
     font-size: 28px; /* Aumentar tamaño del título */
@@ -37,60 +29,36 @@ h2 {
     font-weight: bold; /* Hacer el título más destacado */
 }
 
-/* Texto descriptivo */
-.form-text {
-    font-size: 16px; /* Aumentar tamaño del texto */
-    color: #555; /* Color gris más claro */
-    margin-bottom: 20px;
-    line-height: 1.5; /* Mejorar la legibilidad */
+/* Estilo para el select */
+select {
+    display: block;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #333;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ocupa todo el ancho disponible del contenedor */
+    max-width: 300px; /* Define un ancho máximo para el select */
+    margin: 10px auto; /* Centra el select horizontalmente */
 }
 
-/* Estilos de los campos de texto y números */
-input[type="text"],
-input[type="number"],
-input[type="tel"],
-input[type="email"] {
-    width: 100%; /* Asegura que ocupe todo el ancho */
-    padding: 10px; /* Padding interno para un mejor diseño */
-    border: 1px solid #ddd; /* Borde más suave */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    font-size: 16px; /* Tamaño de fuente para mayor legibilidad */
-    margin-bottom: 15px; /* Espacio entre campos */
+/* Centrar la flecha del select */
+select::after {
+    content: "▼";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #555;
+    pointer-events: none;
 }
 
-/* Estilos del dropdown y campos de texto/números */
-select,
-input[type="text"],
-input[type="number"],
-input[type="tel"],
-input[type="email"] {
-    width: 100%; /* Ocupa todo el ancho del contenedor */
-    padding: 10px; /* Padding interno para un mejor diseño */
-    font-size: 16px; /* Tamaño de fuente para mayor legibilidad */
-    color: #333; /* Color del texto */
-    background-color: #f9f9f9; /* Fondo gris claro */
-    border: 1px solid #ddd; /* Borde más suave */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Sombra suave */
-    margin-bottom: 15px; /* Espacio entre campos */
-}
-
-/* Estilos de hover y focus para los inputs y selects */
-select:focus,
-input:focus {
-    outline: none;
-    border-color: #656668; /* Color de borde al enfocar */
-    box-shadow: 0 0 0 3px rgba(75, 79, 84, 0.2); /* Sombra al enfocar */
-}
-
-/* Estilos de hover para los inputs y select */
-input[type="text"]:hover,
-input[type="number"]:hover,
-input[type="tel"]:hover,
-input[type="email"]:hover,
+/* Estilos de hover y focus para el select */
 select:hover {
-    background-color: #e9ecef; /* Cambio de fondo al hacer hover */
+    background-color: #e9ecef;
 }
 
 select:focus {
@@ -99,13 +67,13 @@ select:focus {
     box-shadow: 0 0 0 3px rgba(75, 79, 84, 0.2);
 }
 
-/* Media Query para pantallas pequeñas */
-@media (max-width: 600px) {
-    .form-grid {
-        grid-template-columns: 1fr; /* Pasa a una columna en pantallas pequeñas */
-    }
-    .form-container label {
-        justify-content: flex-start;
-        padding-right: 0;
-    }
+.modalidad-text {
+    color: #4b4f54; /* Cambia a azul */
+    font-size: 16px; /* Ajusta el tamaño del texto */
+    margin-top: 10px; /* Añade espacio superior */
+    border: 1px solid #ddd; /* Borde ligero */
+    padding: 10px; /* Espaciado interno */
+    border-radius: 5px; /* Esquinas redondeadas */
+    background-color: #f9f9f9; /* Fondo claro */
+    text-align: center; /* Alineación centrada */
 }
