@@ -1,0 +1,18 @@
+
+.header-card {
+    max-width: 400px;  /* Ancho máximo reducido */
+    margin: auto;
+    padding: 5px 10px;  /* Reducido padding para menor altura */
+    background-color: #f4f4f9;
+  }
+  
+  .header-card .p-card-header, .header-card .p-card-content {
+    padding: 5px; /* Reduce el padding de los elementos del card */
+  }
+  
+  .header-details p {
+    margin: 2px 0; /* Espaciado mínimo entre líneas para menor altura */
+    font-size: 0.9rem;
+    line-height: 1.2; /* Reduce la altura de línea */
+  }
+  
