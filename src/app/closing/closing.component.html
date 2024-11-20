@@ -1,0 +1,34 @@
+<p-card header="Información del Contrato de Aprendizaje" class="header-card">
+    <div class="flex-container">
+      <!-- Columna 1: Información del contrato -->
+      <div class="column">
+        <div class="header-details">
+          <p><strong>Nivel:</strong> {{ headerData.level }}</p>
+          <p><strong>Empresa:</strong> {{ headerData.company }}</p>
+          <p><strong>Modalidad:</strong> {{ headerData.mode }}</p>
+          <p><strong>Inicio:</strong> {{ headerData.startDate }}</p>
+          <p><strong>Docente:</strong> {{ headerData.teacher }}</p>
+          <p><strong>Estado:</strong> {{ headerData.status }}</p>
+        </div>
+      </div>
+  
+      <!-- Columna 2: Barra de progreso y nota -->
+      <div class="column">
+        <div class="progress-section">
+          <!-- Barra de progreso con contenido personalizado -->
+          <p-progressBar [value]="headerData.progress" [showValue]="true" styleClass="custom-progress-bar">
+            <ng-template pTemplate="content" let-value>
+              <span>{{ value }} %</span>
+            </ng-template>
+          </p-progressBar>
+  
+          <!-- Texto con la nota -->
+          <div class="note-section">
+            <p style="font-size: 1.5rem; font-weight: bold;">Nota:</p>
+            <p style="font-size: 3rem">{{ headerData.note }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-card>
+  

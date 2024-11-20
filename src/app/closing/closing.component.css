@@ -1,0 +1,49 @@
+.header-card {
+    margin: 20px;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.header-details p {
+    margin: 5px 0;
+}
+
+.progress-section {
+    margin-top: 20px;
+}
+.note-section p {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+
+/* Barra de progreso más alta y más corta */
+::ng-deep .p-progressbar {
+    height: 30px; /* Aumenta la altura de la barra */
+    width: 70%; /* Disminuye el ancho de la barra, ajusta el porcentaje según lo necesites */
+    margin-left: 0; /* Alinea la barra a la izquierda */
+}
+
+/* Estilo para el contenido de la barra (el valor) */
+::ng-deep .p-progressbar .p-progressbar-value {
+    background: #283142 !important;
+    height: 100% !important; /* Asegura que la altura de la barra de progreso sea consistente */
+}
+
+/* Centrado del texto dentro de la barra */
+::ng-deep .p-progressbar .p-progressbar-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem; /* Ajusta el tamaño de la fuente si es necesario */
+}
