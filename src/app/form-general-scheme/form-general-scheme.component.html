@@ -1,0 +1,226 @@
+<div class="form-container">
+    <h2>Esquema General</h2>
+    <p class="form-text" style="text-align: justify;">
+        La práctica empresarial es una vivencia académica - laboral que otorga al estudiante una experiencia en la que
+        tiene la oportunidad de integrar, aplicar y reafirmar las competencias adquiridas dentro del aula hacia
+        escenarios reales.
+    </p>
+
+
+    <div class="section" aria-labelledby="info-general">
+        <h3 id="info-general">Información General de la Empresa</h3>
+        <hr>
+        <div class="form-grid">
+            <div class="form-group">
+                <label for="cargo">Cargo a desempeñar</label>
+                <input type="text" id="cargo" name="cargo" placeholder="Ingrese el cargo a desempeñar" required
+                    oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="remuneracion">Remuneración económica</label>
+                <input type="number" id="remuneracion" name="remuneracion" placeholder="Ingrese la remuneración"
+                    required oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="empresa">Nombre de la empresa</label>
+                <input type="text" id="empresa" name="empresa" placeholder="Ingrese el nombre de la empresa" required
+                    oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="nit">NIT</label>
+                <input type="text" id="nit" name="nit" placeholder="Ingrese el NIT de la empresa" required
+                    oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección de la empresa</label>
+                <input type="text" id="direccion" name="direccion" placeholder="Ingrese la dirección de la empresa"
+                    required oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="ubicacion">Ubicación de la empresa</label>
+                <select id="ubicacion" name="ubicacion" required onchange="validateField(this)">
+                    <option value="">Seleccione la ubicación</option>
+                    <option value="antioquia">Antioquia, Medellín</option>
+                    <option value="cundinamarca">Cundinamarca, Bogotá</option>
+                    <option value="valle">Valle del Cauca, Cali</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono de contacto de la empresa</label>
+                <input type="tel" id="telefono" name="telefono" placeholder="Ingrese el teléfono de la empresa" required
+                    oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="tamano">Tamaño de la empresa</label>
+                <select id="tamano" name="tamano" required onchange="validateField(this)">
+                    <option value="">Seleccione el tamaño</option>
+                    <option value="grande">Grande</option>
+                    <option value="mediana">Mediana</option>
+                    <option value="pequena">Pequeña</option>
+                    <option value="micro">Microempresa</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sector">Sector</label>
+                <select id="sector" name="sector" [(ngModel)]="selectedSector" (change)="updateSubSectorOptions()">
+                    <option value="">Seleccione el sector</option>
+                    <option *ngFor="let sectorOp of sectorOptions" [value]="sectorOp.value">{{ sectorOp.label }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subsector">Subsector</label>
+                <select id="subsector" name="subsector" [(ngModel)]="selectedSubSector" required>
+                    <option value="">Seleccione el subsector</option>
+                    <option *ngFor="let subSectorOp of subSectorOptions" [value]="subSectorOp.value">{{
+                        subSectorOp.label }}
+                    </option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="naturaleza">Naturaleza de la empresa</label>
+                <select id="naturaleza" name="naturaleza" required onchange="validateField(this)">
+                    <option value="">Seleccione la naturaleza</option>
+                    <option value="privada">Privada</option>
+                    <option value="publica">Pública</option>
+                    <option value="mixta">Mixta</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="caja">Caja de compensación</label>
+                <select id="caja" name="caja" required onchange="validateField(this)">
+                    <option value="">Seleccione la caja de compensación</option>
+                    <option value="compensar">Compensar</option>
+                    <option value="colsubsidio">Colsubsidio</option>
+                    <option value="cafam">Cafam</option>
+                    <option value="cofrem">Cofrem</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="supervisor">Nombre del supervisor laboral</label>
+                <input type="text" id="supervisor" name="supervisor"
+                    placeholder="Ingrese el nombre del supervisor laboral" required oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="cargoSupervisor">Cargo del supervisor laboral</label>
+                <input type="text" id="cargoSupervisor" name="cargoSupervisor"
+                    placeholder="Ingrese el cargo del supervisor" required oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="correoSupervisor">Correo electrónico del supervisor laboral</label>
+                <input type="email" id="correoSupervisor" name="correoSupervisor"
+                    placeholder="Ingrese el correo del supervisor" required oninput="validateField(this)">
+            </div>
+        </div>
+
+
+        
+            
+            <div class="section" aria-labelledby="info-general">
+                <h3 id="info-general">Información General de la Empresa</h3>
+                <hr>
+                <div class="form-grid">
+                <div class="form-group">
+                <label for="linea">Línea de intervención de la práctica</label>
+                <select id="linea" name="linea" [(ngModel)]="selectedLine" (change)="updateIndicatorOptions()" required>
+                    <option value="">Seleccione la línea de intervención</option>
+                    <option *ngFor="let lineOp of lineOptions" [value]="lineOp.value">{{ lineOp.label }}</option>
+                </select>
+                <p>{{ lineComplement }}</p>
+            </div>
+
+            <div class="form-group" *ngIf="indicatorOptions.length > 0">
+                <label for="indicator">Indicador {{labelValue}}</label>
+                <select id="indicator" [(ngModel)]="selectedIndicator" name="indicator" class="form-control">
+                    <option value="">Seleccione un indicador</option>
+                    <option *ngFor="let option of indicatorOptions" [value]="option.value">{{ option.label }}</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="departamento">Departamento o área de la ejecución de la práctica</label>
+                <p style="text-align: justify;">Describa el área que será intervenida. (Mercadeo, Talento Humano,
+                    Despachos,
+                    Contabilidad, Compras etc.)</p>
+                <input type="text" id="departamento" name="departamento"
+                    placeholder="Ingrese el nombre del departamento o área" required oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="objetivo">Objetivo de la práctica</label>
+                <p style="text-align: justify;">Reconocer a la organización e identificar la problemática y/o
+                    necesidades
+                    existentes en un área o departamento para su intervención.
+                    Es importante tener en cuenta el alcance de la práctica empresarial acorde a su ciclo de formación:
+                    <li>Nivel técnico - Procesos operativos</li>
+                    <li>Nivel tecnólogo - Proceso de análisis</li>
+                    <li>Nivel profesional - Gestión</li>
+                </p>
+                <input type="text" id="objetivo" name="objetivo"
+                    placeholder="Ingrese el objetivo general de la práctica" required oninput="validateField(this)">
+            </div>
+
+            <div class="form-group">
+                <label for="alcance">Alcance de la práctica</label>
+                <select id="alcance" name="alcance" required onchange="validateField(this)">
+                    <option value="">Seleccione alcance de la práctica</option>
+                    <option value="propuesta">Propuesta</option>
+                    <option value="desarrollo">Desarrollo (Pruebas)</option>
+                    <option value="implementacion">Implementación</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="section" aria-labelledby="dificultades-asesoria">
+            <h3 id="dificultades-asesoria">Dificultades y Asesoría</h3>
+            <hr>
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="dificultades">¿Qué dificultades ha encontrado para empezar su proceso de práctica
+                        empresarial?</label>
+                    <select id="dificultades" name="dificultades" required onchange="validateField(this)">
+                        <option value="">Seleccione Dificultades encontradas</option>
+                        <option value="no_aplica">No aplica</option>
+                        <option value="gestion">Gestión de la empresa</option>
+                        <option value="informacion">Falta de información</option>
+                        <option value="tiempo">Disponibilidad de tiempo</option>
+                        <option value="documentacion">Retrasos en documentación</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="argumento">Argumente su respuesta</label>
+                    <input type="text" id="argumento" name="argumento" placeholder="Argumente su respuesta aquí"
+                        required oninput="validateField(this)">
+                </div>
+
+                <div class="form-group">
+                    <label for="asesoria">¿Recibió asesoría para el diligenciamiento de este formulario?</label>
+                    <select id="asesoria" name="asesoria" required onchange="validateField(this)">
+                        <option value="">Seleccione opción</option>
+                        <option value="si">Sí</option>
+                        <option value="no">No</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+
+            <div class="button-container">
+                <button pButton type="button" label="Enviar" class="submit-button" (click)="onSubmit()"></button>
+            </div>
