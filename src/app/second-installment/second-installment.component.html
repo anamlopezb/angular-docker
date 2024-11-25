@@ -1,0 +1,132 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm">
+        <h2>Entrega Dos</h2>
+      </div>
+      <div class="col-sm">
+        <p-progressBar [value]="25" styleClass="custom-progress-bar"></p-progressBar>
+      </div>
+    </div>
+  
+    <p-table [value]="documentation" [tableStyle]="{ 'min-width': '50rem' }">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Estado</th>
+          <th>Documento</th>
+          <th>Acciones</th>
+          <th>Fecha cargue</th>
+          <th>Observaciones</th>
+        </tr>
+      </ng-template>
+  
+      <ng-template pTemplate="body" let-documentation>
+        <tr>
+          <td>{{ documentation.state }}</td>
+          <td>Diagnostico</td>
+          <td><button pButton type="button" label="Diligenciar" icon="pi pi-pencil" (click)="showDialog()"></button></td>
+          <td>{{ documentation.code }}</td>
+          <td>{{ documentation.accions }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  
+    <!-- Formulario de Entrega (Dialogo) -->
+    <p-dialog header="Formulario de Entrega" [(visible)]="display" [modal]="true" [closable]="false" [style]="{width: '50vw'}">
+      <div class="form-container">
+        <h2>Formulario de Entrega</h2>
+        <p class="form-text">Por favor diligencie todos los campos del formulario.</p>
+    
+        <div class="form-grid">
+          <!-- Preguntas iniciales -->
+          <label for="currentActivity">¿En qué actividad se encuentra dentro de su cronograma de práctica empresarial?</label>
+          <input type="text" id="currentActivity" name="currentActivity" [(ngModel)]="formData.currentActivity">
+    
+          <label for="pendingActivities">Mencione las actividades que no ha podido realizar en el avance alcanzado del cronograma de práctica empresarial:</label>
+          <input type="text" id="pendingActivities" name="pendingActivities" [(ngModel)]="formData.pendingActivities">
+    
+          <label for="difficulties">¿Cuáles dificultades ha encontrado para avanzar con el cronograma de su práctica empresarial?</label>
+          <input type="text" id="difficulties" name="difficulties" [(ngModel)]="formData.difficulties">
+
+    
+          <label for="progressPercentage">¿Qué porcentaje del plan de mejora ha cumplido hasta el momento en su proceso de práctica empresarial?</label>
+          <select id="progressPercentage" name="progressPercentage" [(ngModel)]="formData.progressPercentage">
+            <option value=""></option>
+            <option value="none">Ninguno</option>
+            <option value="less-than-15">Menos del 15%</option>
+            <option value="30">30%</option>
+            <option value="50-or-more">50% o más</option>
+          </select>
+    
+          <!-- Preguntas adicionales -->
+          <label for="alignmentLevel">Indique el nivel en que las actividades de su práctica se alinearon con los objetivos del plan:</label>
+          <select id="alignmentLevel" name="alignmentLevel" [(ngModel)]="formData.alignmentLevel">
+            <option value=""></option>
+            <option value="fully-aligned">Totalmente alineadas</option>
+            <option value="partially-aligned">Parcialmente alineadas</option>
+            <option value="indirectly-aligned">Indirectamente alineadas</option>
+            <option value="not-aligned">No alineadas</option>
+            <option value="not-applicable">No aplica</option>
+          </select>
+    
+          <label for="activityResponse">Describa de qué manera las actividades desarrolladas dan respuesta al objetivo del plan de práctica:</label>
+          <textarea id="activityResponse" name="activityResponse" [(ngModel)]="formData.activityResponse"></textarea>
+    
+          <label for="taskRelevance">Las labores que ha desempeñado son pertinentes al programa académico al que pertenece:</label>
+          <select id="taskRelevance" name="taskRelevance" [(ngModel)]="formData.taskRelevance">
+            <option value=""></option>
+            <option value="1">Nunca</option>
+            <option value="2">Pocas veces</option>
+            <option value="3">Algunas veces</option>
+            <option value="4">Casi siempre</option>
+            <option value="5">Siempre</option>
+          </select>
+    
+          <label for="taskRelevanceExplanation">Si su respuesta anterior está en el rango de 1 a 3, indique el porqué:</label>
+          <textarea id="taskRelevanceExplanation" name="taskRelevanceExplanation" [(ngModel)]="formData.taskRelevanceExplanation"></textarea>
+    
+          <label for="supervisionLevel">Indique el nivel de acompañamiento y/o supervisión que recibe durante su práctica en la empresa:</label>
+          <select id="supervisionLevel" name="supervisionLevel" [(ngModel)]="formData.supervisionLevel">
+            <option value=""></option>
+            <option value="constant">Constante</option>
+            <option value="sporadic">Esporádico</option>
+            <option value="occasional">Eventual</option>
+            <option value="scarce">Escaso</option>
+          </select>
+    
+          <label for="supervisionDetails">Describa el desarrollo del proceso de acompañamiento del supervisión laboral durante la práctica en la empresa:</label>
+          <textarea id="supervisionDetails" name="supervisionDetails" [(ngModel)]="formData.supervisionDetails"></textarea>
+    
+          <label for="planProgress">Según el nivel de avance del plan y el apoyo del sitio de práctica, considera que el alcance propuesto se mantiene en:</label>
+          <select id="planProgress" name="planProgress" [(ngModel)]="formData.planProgress">
+            <option value=""></option>
+            <option value="proposal">Propuesta</option>
+            <option value="development">Desarrollo (pruebas)</option>
+            <option value="implementation">Implementación</option>
+          </select>
+    
+          <label for="scopeMaintained">¿Se mantuvo el alcance de la propuesta?</label>
+          <select id="scopeMaintained" name="scopeMaintained" [(ngModel)]="formData.scopeMaintained">
+            <option value=""></option>
+            <option value="yes">Sí</option>
+            <option value="no">No</option>
+          </select>
+    
+          <label for="newScopeObjective">Si cambió el alcance propuesto, indique el nuevo objetivo:</label>
+          <textarea id="newScopeObjective" name="newScopeObjective" [(ngModel)]="formData.newScopeObjective"></textarea>
+    
+          <label for="teacherGuidance">¿Recibió asesoría para el diligenciamiento de este formulario por parte de su docente de práctica?</label>
+          <select id="teacherGuidance" name="teacherGuidance" [(ngModel)]="formData.teacherGuidance">
+            <option value=""></option>
+            <option value="yes">Sí</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+    
+        <div class="button-group">
+          <button pButton type="button" label="Enviar" (click)="submitForm()"></button>
+          <button pButton type="button" label="Cancelar" icon="pi pi-times" (click)="closeDialog()"></button>
+        </div>
+      </div>
+    </p-dialog>
+    
+  </div>
