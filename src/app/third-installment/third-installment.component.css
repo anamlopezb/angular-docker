@@ -1,0 +1,22 @@
+.row {
+    padding-bottom: 50px;
+}
+
+::ng-deep .custom-button {
+    background-color: black; 
+    color: white;        
+    width: 175px;    
+    border-radius: 20px;    
+    padding: 10px 20px;     
+    border: none;           
+}
+
+::ng-deep .custom-progress-bar{
+    width: 400px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+::ng-deep .custom-progress-bar .p-progressbar-value{
+    background-color: black;
+}

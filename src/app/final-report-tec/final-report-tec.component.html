@@ -1,0 +1,625 @@
+<p-tabView [(activeIndex)]="activeTabIndex">
+  <p-tabPanel header="Evaluación">
+    <!-- pagina 1-->
+    <h3>EVALUACIÓN DE COMPETENCIAS ESPECÍFICAS ACADÉMICAS<br>
+      CICLO TÉCNICO
+    </h3>
+      
+    <P>El objetivo de este formato es evaluar las competencias y el desempeño mostrado por el practicante en sus labores asignadas. En estas casillas de verificación se debe dar una calificación de 1 a 5 de acuerdo con la escala:</P>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-2">1. Nunca </div>
+        <div class="col-2">2. Pocas Veces</div>
+        <div class="col-3">3. Algunas Veces</div>
+        <div class="col-3">4. Casi siempre</div>
+        <div class="col-2">5. Siempre</div>
+      </div>
+    </div>
+    <p-table [value]="questions" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-question>
+      <tr>
+        <td>{{ question.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ question.id }}"
+            [value]="option"
+            [(ngModel)]="question.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+    <div class="navigation-buttons">
+      <button pButton label="Siguiente" (click)="goToTab(1)" class="btn btn-primary"></button>
+    </div>
+  </p-tabPanel>
+
+  <!-- pagina 2-->
+  <p-tabPanel header="Competencias">
+
+    <h3>COMPETENCIAS A EVALUAR</h3>
+
+    <p>En estas casillas de verificación se debe dar una calificación de 1 a 5 de acuerdo con la escala:</p>
+    <div class="container">
+    <div class="row">
+      <div class="col-2">1. Nunca </div>
+      <div class="col-2">2. Pocas Veces</div>
+      <div class="col-3">3. Algunas Veces</div>
+      <div class="col-3">4. Casi siempre</div>
+      <div class="col-2">5. Siempre</div>
+    </div>
+    </div>
+    <p-table [value]="interrogations" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-interrogation>
+      <tr>
+        <td>{{ interrogation.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ interrogation.id }}"
+            [value]="option"
+            [(ngModel)]="interrogation.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+    <div class="navigation-buttons">
+      <button pButton label="Anterior" (click)="goToTab(0)" class="btn btn-secondary"></button>
+      <button pButton label="Siguiente" (click)="goToTab(2)" class="btn btn-primary"></button>
+    </div>
+  </p-tabPanel>  
+
+  <p-tabPanel header="Observaciones">
+
+    <!-- pagina 3-->
+    <h3>OBSERVACIONES SUPERVISOR LABORAL</h3>
+
+    <div class="container">
+    <div class="row">
+      <div class="col-2">1. Limitada </div>
+      <div class="col-2">2. Basica</div>
+      <div class="col-2">3. Adecuada</div>
+      <div class="col-3">4. Sobresaliente</div>
+      <div class="col-3">5. Muy superior</div>
+    </div>
+    </div>
+    <p-table [value]="selected" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-select>
+      <tr>
+        <td>{{ select.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ select.id }}"
+            [value]="option"
+            [(ngModel)]="select.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>21. Teniendo en cuenta aspectos como la preparación académica, los recursos, las condiciones de trabajo que fueron suministrados al practicante, la estructuración y el desarrollo de sus actividades, evalúe la contribución que proporcionó el practicante a cada uno de los aspectos que son presentados: </p>
+
+    <p>Para calificar cada uno de los aspectos utilice la siguiente escala:</p>
+
+    <div class="row">
+    <div class="col-3">1. Muy por debajo de lo esperado. </div>
+    <div class="col-2">2. Menor de lo esperado.</div>
+    <div class="col-2">3. Justo lo esperado.</div>
+    <div class="col-2">4. Mayor de lo esperado.</div>
+    <div class="col-3">5. Muy por encima de lo esperado.</div>
+    </div>
+    <p-table [value]="lists" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-list>
+      <tr>
+        <td>{{ list.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ list.id }}"
+            [value]="option"
+            [(ngModel)]="list.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>22. ¿Qué recomendación de mejora le haría al estudiante?</p>
+    <textarea 
+    rows="5" 
+    pInputTextarea 
+    [(ngModel)]="value" 
+    style="width: 100%;">
+    </textarea>
+
+    <p>23. Con base en el desempeño del estudiante, ¿Qué tan satisfecho se encuentra con su proceso de práctica? <span style="color: red;">*</span></p>
+    <div *ngFor="let choose of chooses">
+    <p-radioButton 
+        name="satisfaction" 
+        [(ngModel)]="selectedChoose" 
+        [value]="choose.value">
+    </p-radioButton>
+    <label for="satisfaction" style="margin-left: 10px;">{{ choose.label }}</label>
+    </div>
+    <div class="navigation-buttons">
+      <button pButton label="Anterior" (click)="goToTab(1)" class="btn btn-secondary"></button>
+      <button pButton label="Siguiente" (click)="goToTab(3)" class="btn btn-primary"></button>
+    </div>
+  </p-tabPanel>  
+  <p-tabPanel header="Indicadores">
+
+    <!-- pagina 4-->
+
+    <h2>IMPACTO EN INDICADORES</h2>
+    <p>
+    De acuerdo a la línea de intervención de su plan de prácticas, califique el nivel de contribución de las actividades 
+    desarrolladas al cumplimiento de los indicadores que correspondan.
+    </p>
+    <p>Para calificar los indicadores, utilice la siguiente escala:</p>
+
+    <ul>
+    <li>
+      <strong>0. No corresponde/No fue parte del plan:</strong> Este indicador no se relaciona con la línea de intervención 
+      de su plan de prácticas o no fue contemplado dentro del mismo.
+    </li>
+    <li>
+      <strong>1. Contribución mínima:</strong> Las actividades han aportado de manera insignificante al indicador, con 
+      escasas acciones que impacten positivamente en su cumplimiento.
+    </li>
+    <li>
+      <strong>2. Contribución parcial:</strong> Las actividades han contribuido de forma moderada al indicador, logrando 
+      algunos avances pero sin alcanzar los objetivos plenamente.
+    </li>
+    <li>
+      <strong>3. Contribución mayor:</strong> Las actividades han tenido una contribución significativa al indicador, 
+      cumpliendo con la mayoría de los objetivos establecidos y mostrando un claro progreso.
+    </li>
+    <li>
+      <strong>4. Contribución total:</strong> Las actividades han cumplido completamente con los indicadores, alcanzando 
+      o incluso superando los objetivos propuestos, evidenciando un éxito total en la línea de intervención del plan de prácticas.
+    </li>
+    </ul>
+
+    <h6>24. Indicares de Gestión Comercial</h6>
+    <p>De acuerdo a la escala presentada, seleccione el nivel de contribución que tienen las actividades desarrolladas durante el proceso de práctica en los siguientes indicadores:</p>
+    <p-table [value]="indicators" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-indicator>
+      <tr>
+        <td>{{ indicator.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ indicator.id }}"
+            [value]="option"
+            [(ngModel)]="indicator.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>
+    25. Si en su respuesta anterior "Otro" indicador está en el rango de 1 a 4, escriba el indicador: 
+    <span style="color: red;">*</span>
+    </p>
+    <div>
+    <!-- Opción "No aplica" -->
+    <p-radioButton 
+      name="indicator" 
+      [(ngModel)]="selectedOther" 
+      [value]="'No aplica'">
+    </p-radioButton>
+    <label style="margin-left: 10px;">No aplica</label>
+    </div>
+    <div style="margin-top: 10px;">
+      <!-- Opción "Otras" con campo de texto -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedOther" 
+        [value]="'Otras'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Otras</label>
+
+      <!-- Campo de texto mostrado solo si se selecciona "Otras" -->
+      <input 
+        type="text" 
+        pInputText 
+        *ngIf="selectedOther === 'Otras'" 
+        [(ngModel)]="otherText" 
+        placeholder="Escriba el indicador" 
+        style="margin-left: 10px; width: 300px;"
+      />
+    </div>
+
+    <h6>26. Indicadores de Productividad Operacional:</h6>
+    <p>De acuerdo a la escala presentada, seleccione el nivel de contribución que tienen las actividades desarrolladas durante el proceso de práctica en los siguientes indicadores:</p>
+    <p-table [value]="indicators" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-indicator>
+      <tr>
+        <td>{{ indicator.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ indicator.id }}"
+            [value]="option"
+            [(ngModel)]="indicator.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>
+    27. Si en su respuesta anterior "Otro" indicador está en el rango de 1 a 4, escriba el indicador: 
+    <span style="color: red;">*</span>
+    </p>
+    <div>
+    <!-- Opción "No aplica" -->
+    <p-radioButton 
+      name="indicator" 
+      [(ngModel)]="selectedDifferent" 
+      [value]="'No aplica'">
+    </p-radioButton>
+    <label style="margin-left: 10px;">No aplica</label>
+    </div>
+    <div style="margin-top: 10px;">
+      <!-- Opción "Otras" con campo de texto -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedDifferent" 
+        [value]="'Otras'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Otras</label>
+
+      <!-- Campo de texto mostrado solo si se selecciona "Otras" -->
+      <input 
+        type="text" 
+        pInputText 
+        *ngIf="selectedDifferent === 'Otras'" 
+        [(ngModel)]="otherDifferent" 
+        placeholder="Escriba el indicador" 
+        style="margin-left: 10px; width: 300px;"
+      />
+    </div>
+
+    <h6>28. Indicadores de Desarrollo y Sofisticación de Producto o Servicios:</h6>
+    <p>De acuerdo a la escala presentada, seleccione el nivel de contribución que tienen las actividades desarrolladas durante el proceso de práctica en los siguientes indicadores:</p>
+    <p-table [value]="developers" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-developer>
+      <tr>
+        <td>{{ developer.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ developer.id }}"
+            [value]="option"
+            [(ngModel)]="developer.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>
+    29. Si en su respuesta anterior "Otro" indicador está en el rango de 1 a 4, escriba el indicador: 
+    <span style="color: red;">*</span>
+    </p>
+    <div>
+    <!-- Opción "No aplica" -->
+    <p-radioButton 
+      name="indicator" 
+      [(ngModel)]="selectedDistinct" 
+      [value]="'No aplica'">
+    </p-radioButton>
+    <label style="margin-left: 10px;">No aplica</label>
+    </div>
+    <div style="margin-top: 10px;">
+      <!-- Opción "Otras" con campo de texto -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedDistinct" 
+        [value]="'Otras'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Otras</label>
+
+      <!-- Campo de texto mostrado solo si se selecciona "Otras" -->
+      <input 
+        type="text" 
+        pInputText 
+        *ngIf="selectedDistinct === 'Otras'" 
+        [(ngModel)]="otherDistinct" 
+        placeholder="Escriba el indicador" 
+        style="margin-left: 10px; width: 300px;"
+      />
+    </div>
+
+    <h6>30. Indicadores de Logística:</h6>
+    <p>De acuerdo a la escala presentada, seleccione el nivel de contribución que tienen las actividades desarrolladas durante el proceso de práctica en los siguientes indicadores:</p>
+    <p-table [value]="logistics" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-logistic>
+      <tr>
+        <td>{{ logistic.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ logistic.id }}"
+            [value]="option"
+            [(ngModel)]="logistic.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>
+    31. Si en su respuesta anterior "Otro" indicador está en el rango de 1 a 4, escriba el indicador: 
+    <span style="color: red;">*</span>
+    </p>
+    <div>
+    <!-- Opción "No aplica" -->
+    <p-radioButton 
+      name="indicator" 
+      [(ngModel)]="selectedManner" 
+      [value]="'No aplica'">
+    </p-radioButton>
+    <label style="margin-left: 10px;">No aplica</label>
+    </div>
+    <div style="margin-top: 10px;">
+      <!-- Opción "Otras" con campo de texto -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedManner" 
+        [value]="'Otras'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Otras</label>
+
+      <!-- Campo de texto mostrado solo si se selecciona "Otras" -->
+      <input 
+        type="text" 
+        pInputText 
+        *ngIf="selectedManner === 'Otras'" 
+        [(ngModel)]="otherManner" 
+        placeholder="Escriba el indicador" 
+        style="margin-left: 10px; width: 300px;"
+      />
+    </div>
+
+    <h6>32. Indicadores de Transformación Digital:</h6>
+    <p>De acuerdo a la escala presentada, seleccione el nivel de contribución que tienen las actividades desarrolladas durante el proceso de práctica en los siguientes indicadores:  :</p>
+    <p-table [value]="transformations" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-transformation>
+      <tr>
+        <td>{{ transformation.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ transformation.id }}"
+            [value]="option"
+            [(ngModel)]="transformation.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>
+    33. Si en su respuesta anterior "Otro" indicador está en el rango de 1 a 4, escriba el indicador: 
+    <span style="color: red;">*</span>
+    </p>
+    <div>
+    <!-- Opción "No aplica" -->
+    <p-radioButton 
+      name="indicator" 
+      [(ngModel)]="selectedUnaffiliated" 
+      [value]="'No aplica'">
+    </p-radioButton>
+    <label style="margin-left: 10px;">No aplica</label>
+    </div>
+    <div style="margin-top: 10px;">
+      <!-- Opción "Otras" con campo de texto -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedUnaffiliated" 
+        [value]="'Otras'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Otras</label>
+
+      <!-- Campo de texto mostrado solo si se selecciona "Otras" -->
+      <input 
+        type="text" 
+        pInputText 
+        *ngIf="selectedUnaffiliated === 'Otras'" 
+        [(ngModel)]="otherUnaffiliated" 
+        placeholder="Escriba el indicador" 
+        style="margin-left: 10px; width: 300px;"
+      />
+    </div>
+
+    <h6>34. Indicadores de Gestión de Calidad:</h6>
+    <p>De acuerdo a la escala presentada, seleccione el nivel de contribución que tienen las actividades desarrolladas durante el proceso de práctica en los siguientes indicadores:</p>
+    <p-table [value]="Qualities" class="evaluation-table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Pregunta</th>
+        <th *ngFor="let option of options">{{ option }}</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-Quality>
+      <tr>
+        <td>{{ Quality.text }}</td>
+        <td *ngFor="let option of options">
+          <p-radioButton
+            name="group{{ Quality.id }}"
+            [value]="option"
+            [(ngModel)]="Quality.answer"
+          ></p-radioButton>
+        </td>
+      </tr>
+    </ng-template>
+    </p-table>
+
+    <p>
+    35. Si en su respuesta anterior "Otro" indicador está en el rango de 1 a 4, escriba el indicador: 
+    <span style="color: red;">*</span>
+    </p>
+    <div>
+    <!-- Opción "No aplica" -->
+    <p-radioButton 
+      name="indicator" 
+      [(ngModel)]="selectedEquals" 
+      [value]="'No aplica'">
+    </p-radioButton>
+    <label style="margin-left: 10px;">No aplica</label>
+    </div>
+    <div style="margin-top: 10px;">
+      <!-- Opción "Otras" con campo de texto -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedEquals" 
+        [value]="'Otras'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Otras</label>
+
+      <!-- Campo de texto mostrado solo si se selecciona "Otras" -->
+      <input 
+        type="text" 
+        pInputText 
+        *ngIf="selectedEquals === 'Otras'" 
+        [(ngModel)]="otherEquals" 
+        placeholder="Escriba el indicador" 
+        style="margin-left: 10px; width: 300px;"
+      />
+    </div>
+    <div class="navigation-buttons">
+      <button pButton label="Anterior" (click)="goToTab(2)" class="btn btn-secondary"></button>
+      <button pButton label="Siguiente" (click)="goToTab(4)" class="btn btn-primary"></button>
+    </div>
+  </p-tabPanel>  
+
+  <p-tabPanel header="Observaciones-Estudiantes">
+
+    <!-- pagina 5 -->
+
+    <p>36. Según la finalización del proceso de prácticas, el alcance logrado en el desarrollo fue:  <span style="color: red;">*</span></p>
+    <div *ngFor="let process of processes">
+    <p-radioButton 
+        name="satisfaction" 
+        [(ngModel)]="selectedProcess" 
+        [value]="process.value">
+    </p-radioButton>
+    <label for="satisfaction" style="margin-left: 10px;">{{ process.label }}</label>
+    </div>
+
+    <p>37. ¿Qué porcentaje del plan de mejora se cumplió al terminar su proceso de prácticas?  <span style="color: red;">*</span></p>
+    <div *ngFor="let percentage of percentages">
+    <p-radioButton 
+        name="satisfactionPercentage" 
+        [(ngModel)]="selectedPercentage" 
+        [value]="percentage.value">
+    </p-radioButton>
+    <label for="satisfactionPercentage" style="margin-left: 10px;">{{ percentage.label }}</label>
+    </div>
+    <p>38. Argumente su respuesta</p>
+    <textarea 
+    rows="5" 
+    pInputTextarea 
+    [(ngModel)]="value" 
+    style="width: 100%;">
+    </textarea>
+
+    <p>
+    35. Si en su respuesta anterior "Otro" indicador está en el rango de 1 a 4, escriba el indicador: 
+    <span style="color: red;">*</span>
+    </p>
+    <div>
+        <!-- Opción "No aplica" -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedYes" 
+        [value]="'Si'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Si</label>
+    </div>
+    <div>
+    <!-- Opción "No aplica" -->
+    <p-radioButton 
+      name="indicator" 
+      [(ngModel)]="selectedNo" 
+      [value]="'No'">
+    </p-radioButton>
+    <label style="margin-left: 10px;">No</label>
+    </div>
+    <div style="margin-top: 10px;">
+      <!-- Opción "Otras" con campo de texto -->
+      <p-radioButton 
+        name="indicator" 
+        [(ngModel)]="selectedNo" 
+        [value]="'Otras'">
+      </p-radioButton>
+      <label style="margin-left: 10px;">Otras</label>
+
+      <!-- Campo de texto mostrado solo si se selecciona "Otras" -->
+      <input 
+        type="text" 
+        pInputText 
+        *ngIf="selectedNo === 'Otras'" 
+        [(ngModel)]="otherYesNo" 
+        placeholder="Escriba el indicador" 
+        style="margin-left: 10px; width: 300px;"
+      />
+    </div>
+    <div class="navigation-buttons">
+      <button pButton label="Anterior" (click)="goToTab(3)" class="btn btn-secondary"></button>
+    </div>
+  </p-tabPanel>  
+</p-tabView>
