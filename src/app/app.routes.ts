@@ -6,7 +6,9 @@ import { PostulacionesComponent } from './postulaciones/postulaciones.component'
 import { EncuentrosComponent } from './encuentros/encuentros.component';
 import { AgendamientosComponent } from './agendamientos/agendamientos.component';
 import { ManagerPracticesComponent } from './manager-practices/manager-practices.component';
-
+import { FirstDeliveryComponent } from './first-delivery/first-delivery.component';
+import { ThirdInstallmentComponent } from './third-installment/third-installment.component';
+import { FinalReportTecComponent } from './final-report-tec/final-report-tec.component';
 export const routes: Routes = [
   { path: 'practices', component: PracticesComponent },
   { path: 'offers', component: OffersComponent },
@@ -15,6 +17,8 @@ export const routes: Routes = [
   { path: 'agendamientos',  component: AgendamientosComponent},
   { path: 'postulaciones', component: PostulacionesComponent},
   { path: 'encuentros', component: EncuentrosComponent },
-  { path: 'manager-practices', component: ManagerPracticesComponent}
-
+  { path: 'manager-practices', component: ManagerPracticesComponent},
+  { path: 'first-delivery', component: FirstDeliveryComponent},
+  { path: 'third-installment', component: ThirdInstallmentComponent},
+  { path: 'final-report', component: FinalReportTecComponent}
 ];
