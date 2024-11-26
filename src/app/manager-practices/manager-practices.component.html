@@ -5,6 +5,8 @@
                 <ng-container [ngSwitch]="item.content"> 
                     <app-formalizes *ngSwitchCase="'formalize'"></app-formalizes>
                     <app-registration-practices *ngSwitchCase="'registration'"></app-registration-practices>
+                    <app-entrega-uno *ngSwitchCase="'entrega-uno'"></app-entrega-uno>
+                    <app-second-installment *ngSwitchCase="'second-installment'"></app-second-installment>
                     <div *ngSwitchDefault>
                         <p>Contenido no disponible para este paso.</p>
                     </div>

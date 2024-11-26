@@ -1,0 +1,11 @@
+::ng-deep .custom-progress-bar{
+    justify-content: right;
+    align-items: right;
+    width: 400px;
+    height: 35px;
+    border-radius: 20px;
+}
+
+::ng-deep .custom-progress-bar .p-progressbar-value{
+    background-color: black;
+}
