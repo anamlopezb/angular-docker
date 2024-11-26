@@ -4,14 +4,10 @@ import { CommonModule } from '@angular/common';
 import { StepperModule } from 'primeng/stepper';
 import { FormalizesComponent } from '../formalizes/formalizes.component';
 import { RegistrationPracticesComponent } from '../registration-practices/registration-practices.component';
-<<<<<<< HEAD
 import { EntregaUnoComponent } from '../entrega-uno/entrega-uno.component'; // Importa el componente
 import { SecondInstallmentComponent } from '../second-installment/second-installment.component';
+import { ClosingComponent } from '../closing/closing.component';
 
-=======
-import { ClosingComponent } from "../closing/closing.component";
-import { FormGeneralSchemeComponent } from "../form-general-scheme/form-general-scheme.component";
->>>>>>> cd369bdeb01c9a5d1b8898e8981469a2e5a1e24e
 
 interface StepItem {
   label: string;
@@ -29,6 +25,7 @@ interface StepItem {
     StepperModule,
     EntregaUnoComponent,
     SecondInstallmentComponent, // Agregar aquí para reconocer el componente
+    ClosingComponent,
 
   ],
   templateUrl: './manager-practices.component.html',
