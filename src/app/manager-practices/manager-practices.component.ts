@@ -4,9 +4,14 @@ import { CommonModule } from '@angular/common';
 import { StepperModule } from 'primeng/stepper';
 import { FormalizesComponent } from '../formalizes/formalizes.component';
 import { RegistrationPracticesComponent } from '../registration-practices/registration-practices.component';
+<<<<<<< HEAD
 import { EntregaUnoComponent } from '../entrega-uno/entrega-uno.component'; // Importa el componente
 import { SecondInstallmentComponent } from '../second-installment/second-installment.component';
 
+=======
+import { ClosingComponent } from "../closing/closing.component";
+import { FormGeneralSchemeComponent } from "../form-general-scheme/form-general-scheme.component";
+>>>>>>> cd369bdeb01c9a5d1b8898e8981469a2e5a1e24e
 
 interface StepItem {
   label: string;
@@ -31,12 +36,11 @@ interface StepItem {
 })
 export class ManagerPracticesComponent {
   items: StepItem[] = [
-    { label: 'Formaliza', content: 'formalize' },
     { label: 'Registra', content: 'registration' },
     { label: 'Primera Entrega', content: 'entrega-uno' },
     { label: 'Segunda Entrega', content: 'second-installment' },
     { label: 'Tercera Entrega', content: 'step3' },
-    { label: 'Cierre', content: 'step3' },
+    { label: 'Cierre', content: 'closing' },
   ];
 
   activeIndex: number = 0;

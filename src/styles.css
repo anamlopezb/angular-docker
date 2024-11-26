@@ -36,3 +36,40 @@ p-table tr:hover {
 .submit-button:active {
     background-color: #555; /* Color al hacer clic */
 }
+
+
+
+::ng-deep .resume-button {
+    padding: 10px 25px;
+    background-color: #cbcaca !important; /* Gris claro */
+    color: #283142 !important;
+    border: none !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    transition: background-color 0.3s, transform 0.2s !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+    margin-right: 10px;
+}
+
+::ng-deep .resume-button:hover {
+    background-color: #283142 !important; /* Azul oscuro */
+    transform: scale(1.05) !important;
+    color: #f9f9f9 !important;
+}
+
+p-table {
+    width: 100%; /* La tabla ocupa todo el ancho del contenedor */
+    max-width: 1200px; /* Añadir esto para controlar el ancho máximo */
+    margin-left: auto !important;/* Centramos la tabla */
+    margin-right: auto; /* Centramos la tabla */
+    table-layout: fixed; /* Fija el ancho de las columnas */
+    overflow-x: auto; /* Permite scroll horizontal si el contenido es muy largo */
+}
+
+p-table th, p-table td {
+    text-align: left; /* Alineación del texto */
+    padding: 1rem; /* Espaciado interno de las celdas */
+    word-wrap: break-word; /* Evita que el contenido se desborde de las celdas */
+}
+
