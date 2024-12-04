@@ -1,0 +1,64 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+          <h2>Documentación</h2>
+        </div>
+        <div class="col-sm">
+            <p-progressBar [value]="25" styleClass="custom-progress-bar"/>
+        </div>
+    </div>
+    <p-table [value]="documentation" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Estado</th>
+                <th>Documento</th>
+                <th>Acciones</th>
+                <th>Fecha cargue</th>
+                <th>Observaciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-documentation>
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Formulario informe final</td>
+                <td> <p-button label="Diligenciar" (onClick)="abrirDialogo() " styleClass="custom-button" /></td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr>
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Plan de trabajo final</td>
+                <td><p-button icon="pi pi-file"></p-button>
+                    <p-button icon="pi pi-pencil"></p-button>
+                    <p-button icon="pi pi-trash"></p-button>
+                </td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr> 
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Acta de cierre</td>
+                <td><p-button icon="pi pi-file"></p-button>
+                </td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr>                          
+        </ng-template>
+    </p-table>
+    <!-- tabla con botones de selección -->
+    <p-dialog 
+        header="Header" 
+        [modal]="true"
+        [(visible)]="visible" 
+        [style]="{ width: '50rem' }" 
+        [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+        [maximizable]="true">
+        <ng-template pTemplate="header">
+            <div class="custom-header">
+                <span>INFORME FINAL</span>
+            </div>
+        </ng-template>
+                <app-final-report-tec></app-final-report-tec>
+    </p-dialog>
+</div>

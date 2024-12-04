@@ -1,0 +1,57 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+          <h2>Documentación</h2>
+        </div>
+        <div class="col-sm">
+            <p-progressBar [value]="25" styleClass="custom-progress-bar"/>
+        </div>
+    </div>
+    <p-table [value]="documentation" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Estado</th>
+                <th>Documento</th>
+                <th>Acciones</th>
+                <th>Fecha cargue</th>
+                <th>Observaciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-documentation>
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Diagnostico</td>
+                <td><p-button icon="pi pi-paperclip"></p-button><p-button icon="pi pi-download"></p-button></td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr>
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Planificación</td>
+                <td><p-button icon="pi pi-file"></p-button>
+                    <p-button icon="pi pi-pencil"></p-button>
+                    <p-button icon="pi pi-trash"></p-button>
+                    <p-button icon="pi pi-download"></p-button>
+                </td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr>
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Acta inicio de practicas</td>
+                <td><p-button icon="pi pi-file"></p-button><p-button icon="pi pi-download"></p-button></td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr>
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Contrato laboral</td>
+                <td><p-button icon="pi pi-pencil"></p-button><p-button icon=" pi pi-download"></p-button></td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr>
+                            
+        </ng-template>
+    </p-table>
+</div>
