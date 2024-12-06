@@ -1,0 +1,32 @@
+<h1>Gestión de Estudiantes</h1>
+
+<p-table [value]="students" [paginator]="true" [rows]="5" [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+      <tr>
+        <th>Nombre</th>
+        <th>Nivel</th>
+        <th>Estado</th>
+        <th>Detalle</th>
+        <th>% Avance</th>
+        <th>Asignar Nota</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-student>
+      <tr>
+        <td>{{ student.name }}</td>
+        <td>{{ student.level }}</td>
+        <td>{{ student.status }}</td>
+        <td>
+          <button class="detail-button" (click)="viewStudentDetail(student)">
+            <i class="pi pi-user"></i>
+          </button>
+        </td>
+        <td>{{ student.progress }}%</td>
+        <td>
+          <button class="assign-button" (click)="assignGrade(student)">Asignar Nota</button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+

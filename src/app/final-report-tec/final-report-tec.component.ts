@@ -159,4 +159,6 @@ export class FinalReportTecComponent {
     goToTab(index: number): void {
       this.activeTabIndex = index;
     }
+
+  
 }

@@ -37,6 +37,16 @@
                 <td>{{ documentation.code }}</td>
                 <td>{{ documentation.accions }}</td>
             </tr>
+
+            <tr>
+                <td>{{ documentation.state }}</td>
+                <td>Esquema General</td>
+                <td> <p-button label="Diligenciar" (onClick)="abrirDialogo() " styleClass="custom-button" /></td>
+                <td>{{ documentation.code }}</td>
+                <td>{{ documentation.accions }}</td>
+            </tr>
+            
+
             <tr>
                 <td>{{ documentation.state }}</td>
                 <td>Acta inicio de practicas</td>
@@ -54,4 +64,19 @@
                             
         </ng-template>
     </p-table>
+    
+    <p-dialog 
+    header="Header" 
+    [modal]="true"
+    [(visible)]="visible" 
+    [style]="{ width: '50rem' }" 
+    [breakpoints]="{ '1199px': '75vw', '575px': '90vw' }" 
+    [maximizable]="true">
+    <ng-template pTemplate="header">
+        <div class="custom-header">
+            <span></span>
+        </div>
+    </ng-template>
+            <app-form-general-scheme></app-form-general-scheme>
+</p-dialog>
 </div>

@@ -10,6 +10,12 @@ import { SecondInstallmentComponent } from './second-installment/second-installm
 import { FirstDeliveryComponent } from './first-delivery/first-delivery.component';
 import { ThirdInstallmentComponent } from './third-installment/third-installment.component';
 import { FinalReportTecComponent } from './final-report-tec/final-report-tec.component';
+import { FormGeneralSchemeComponent } from './form-general-scheme/form-general-scheme.component';
+import { StudentManagementTeacherComponent } from './student-management-teacher/student-management-teacher.component';
+import { StudentProfileTeacherComponent } from './student-profile-teacher/student-profile-teacher.component';
+
+
+
 export const routes: Routes = [
   { path: 'practices', component: PracticesComponent },
   { path: 'offers', component: OffersComponent },
@@ -22,6 +28,9 @@ export const routes: Routes = [
   { path: 'first-delivery', component: FirstDeliveryComponent},
   { path: 'second-installment', component: SecondInstallmentComponent },
   { path: 'third-installment', component: ThirdInstallmentComponent},
-  { path: 'final-report', component: FinalReportTecComponent}
-
+  { path: 'final-report', component: FinalReportTecComponent},
+  { path: 'form-general', component:  FormGeneralSchemeComponent},
+  { path: 'student-management-teacher', component:  StudentManagementTeacherComponent},
+  { path: 'student-profile-teacher/:id', component: StudentProfileTeacherComponent },
+  { path: '', redirectTo: '/students', pathMatch: 'full' },
 ];

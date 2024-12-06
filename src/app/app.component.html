@@ -26,6 +26,9 @@
           documentos</a>
       </li>
     </ul>
+    <li [class.active]="isActive('/student-management-teacher')">
+      <a (click)="router.navigate(['/student-management-teacher'])" aria-label="Estudiantes">Estudiantes</a>
+    </li>
   </nav>
 
   <header>

@@ -1,0 +1,17 @@
+.detail-button {
+    background-color: #17a2b8;
+    color: #fff;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .detail-button:hover {
+    background-color: #138496;
+  }
+  
+  .detail-button i {
+    font-size: 1.2rem;
+  }
+  
