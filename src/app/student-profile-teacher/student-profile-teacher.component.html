@@ -1,8 +1,48 @@
-<h1>Perfil del Estudiante</h1>
-<div class="profile-container">
-  <h2>{{ student?.name }}</h2>
-  <p><strong>Nivel:</strong> {{ student?.level }}</p>
-  <p><strong>Estado:</strong> {{ student?.status }}</p>
-  <p><strong>Detalles:</strong> {{ student?.details }}</p>
-  <p><strong>% de Avance:</strong> {{ student?.progress }}%</p>
+<div class="student-profile-container">
+  <h1>Perfil del Estudiante</h1>
+  <div class="profile-header">
+    <p><strong>Nombre:</strong> {{ student?.name }}</p>
+    <p><strong>Nivel:</strong> {{ student.level }}</p>
+    <p><strong>Estado:</strong> {{ student?.status }}</p>
+  </div>
+
+  <p-table [value]="deliveries" [tableStyle]="{ 'min-width': '50rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Documento</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+        <th>Observaciones</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-delivery>
+      <tr>
+        <td>{{ delivery.document }}</td>
+        <td>{{ delivery.status }}</td>
+        <td>
+          <!-- Botón para aprobar -->
+          <button 
+            pButton 
+            class="p-button-rounded p-button-success p-mr-2" 
+            icon="pi pi-check" 
+            (click)="approveDelivery(delivery)">
+          </button>
+          <!-- Botón para desaprobar -->
+          <button 
+            pButton 
+            class="p-button-rounded p-button-danger" 
+            icon="pi pi-times" 
+            (click)="rejectDelivery(delivery)">
+          </button>
+        </td>
+        <td>
+          <input 
+            type="text" 
+            [(ngModel)]="delivery.observations" 
+            placeholder="Añadir observaciones" 
+            class="observations-input" />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>
