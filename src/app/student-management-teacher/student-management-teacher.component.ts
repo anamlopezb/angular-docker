@@ -24,7 +24,8 @@ export class StudentManagementTeacherComponent {
   selectedStudent: any = null;
 
   gradeForm = {
-    grade: ''
+    grade: '',
+    observations: '' // Campo adicional para observaciones
   };
 
   constructor(private router: Router) {} // Inyectar el servicio Router
@@ -33,7 +34,6 @@ export class StudentManagementTeacherComponent {
   viewStudentDetail(student: any) {
     this.router.navigate(['/student-profile-teacher', student.id]); // Navegación hacia la nueva vista
   }
-  
 
   assignGrade(student: any) {
     this.selectedStudent = student;
@@ -43,17 +43,22 @@ export class StudentManagementTeacherComponent {
   resetGradeForm() {
     this.displayGradeForm = false;
     this.gradeForm = {
-      grade: ''
+      grade: '',
+      observations: '' // Restablecer observaciones
     };
   }
 
   submitGrade() {
-    if (!this.gradeForm.grade) {
-      alert('Por favor, ingrese una nota válida.');
+    const grade = parseFloat(this.gradeForm.grade);
+
+    if (isNaN(grade) || grade < 0.0 || grade > 5.0) {
+      alert('Por favor, ingrese una nota válida entre 0.0 y 5.0.');
       return;
     }
 
-    console.log(`Nota asignada a ${this.selectedStudent.name}: ${this.gradeForm.grade}`);
+    console.log(`Nota asignada a ${this.selectedStudent.name}: ${grade}`);
+    console.log(`Observaciones: ${this.gradeForm.observations}`);
     this.resetGradeForm();
   }
 }
+

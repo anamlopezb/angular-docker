@@ -59,4 +59,26 @@ export class StudentProfileTeacherComponent {
     delivery.status = 'Desaprobado';
     alert(`Se ha desaprobado la entrega: ${delivery.document}`);
   }
+
+  viewDocument(delivery: any) {
+    // Simula la visualización del documento en una nueva pestaña o modal
+    if (delivery.documentUrl) {
+      window.open(delivery.documentUrl, '_blank'); // Abre el documento en una nueva pestaña
+    } else {
+      alert('No se encontró el documento para visualizar.');
+    }
+  }
+  
+  downloadDocument(delivery: any) {
+    // Simula la descarga del documento
+    if (delivery.documentUrl) {
+      const link = document.createElement('a');
+      link.href = delivery.documentUrl;
+      link.download = delivery.document; // Nombre del archivo
+      link.click();
+    } else {
+      alert('No se encontró el documento para descargar.');
+    }
+  }
+  
 }

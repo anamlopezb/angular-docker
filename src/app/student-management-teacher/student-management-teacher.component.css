@@ -15,3 +15,86 @@
     font-size: 1.2rem;
   }
   
+  /* Estilo del formulario de asignación de nota */
+.grade-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Máximo ancho para el formulario */
+}
+
+/* Estilos para las etiquetas del formulario */
+.grade-form-container label {
+  font-weight: bold;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+/* Estilos para los campos de entrada del formulario (input y textarea) */
+.grade-form-container input,
+.grade-form-container textarea,
+.grade-form-container select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  margin-bottom: 1rem; /* Espaciado entre campos */
+}
+
+/* Estilos para los campos cuando están en foco (focus) */
+.grade-form-container input:focus,
+.grade-form-container textarea:focus,
+.grade-form-container select:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+/* Estilo para el campo de observaciones (textarea) */
+.grade-form-container textarea {
+  resize: vertical;
+  min-height: 100px; /* Altura mínima para textarea */
+}
+
+/* Estilos para el pie de formulario con los botones */
+p-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+/* Estilos para los botones dentro del modal */
+p-footer button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Estilo para el botón de guardar (aprobar) */
+p-footer button.pi-check {
+  background-color: #28a745;
+  color: white;
+}
+
+p-footer button.pi-check:hover {
+  background-color: #218838;
+}
+
+/* Estilo para el botón de cancelar (desaprobar) */
+p-footer button.pi-times {
+  background-color: #dc3545;
+  color: white;
+}
+
+p-footer button.pi-times:hover {
+  background-color: #c82333;
+}
