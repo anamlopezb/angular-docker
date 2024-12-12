@@ -1,0 +1,43 @@
+<div class="container">
+    <p-table [value]="Query_E" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th></th>
+                <th>Documento</th>
+                <th>Estado</th>
+                <th>Observaciones</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-Query_E>
+            <tr>
+                <td><p-button icon="pi pi-eye" ></p-button><p-button icon="pi pi-download" ></p-button></td>
+                <td>Diagnostico</td>
+                <td>{{ Query_E.stade }}</td>
+                <td>{{ Query_E.obervation_one }}</td>
+            </tr>
+
+            <tr>
+                <td><p-button icon="pi pi-eye" ></p-button><p-button icon="pi pi-download" ></p-button></td>
+                <td>Planificación</td>
+                <td>{{ Query_E.level_tecno }}</td>
+                <td>{{ Query_E.obervation_two }}</td>
+
+            </tr>
+            
+            <tr>
+                <td><p-button icon="pi pi-eye" ></p-button><p-button icon="pi pi-download" ></p-button></td>
+                <td>Acta de inicio de practicas</td>
+                <td>{{ Query_E.stade }}</td>
+                <td>{{ Query_E.obervation_one }}</td>
+
+            </tr>
+            <tr>
+                <td><p-button icon="pi pi-eye" ></p-button><p-button icon="pi pi-download" ></p-button></td>
+                <td>Contrato laboral</td>
+                <td>{{ Query_E.stade_three }}</td>
+                <td></td>
+
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

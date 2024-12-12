@@ -25,6 +25,13 @@
         <a (click)="router.navigate(['/document-download'])" aria-label="Descarga de documentos">Descarga de
           documentos</a>
       </li>
+      <li [class.active]="isActive('/student-consultation')">
+        <a (click)="router.navigate(['/student-consultation'])" aria-label="Consulta Estudiante">Consulta Estudiante</a>
+      </li>
+      <li [class.active]="isActive('/teaching-consultation')">
+        <a (click)="router.navigate(['/teaching-consultation'])" aria-label="Consulta Docente">Consulta Docente</a>
+      </li>
+
     </ul>
   </nav>
 

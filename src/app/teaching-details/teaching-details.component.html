@@ -1,0 +1,25 @@
+<div class="container">
+    <p-table [value]="Query_E" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Nombre</th>
+                <th>Ciclo</th>
+                <th>Empresa</th>
+                <th>Modalidad</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-Query_E>
+            <tr>
+                <td>{{ Query_E.estudent }}</td>
+                <td>{{ Query_E.level_tec }}</td>
+                <td>Bancolombia</td>
+                <td>{{ Query_E.mode_one }}</td>
+                <td>{{ Query_E.date_start }}</td>
+                <td>{{ Query_E.date_end }}</td>
+            </tr>
+                            
+        </ng-template>
+    </p-table>
+</div>
