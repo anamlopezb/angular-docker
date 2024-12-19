@@ -1,0 +1,33 @@
+<header>
+  <div>
+    <!-- Sidebar Toggle Button -->
+    <button class="hamburger-icon" (click)="toggleSidebar()" aria-label="Toggle Sidebar">
+      <i class="pi pi-bars" style="font-size: 1.5rem"></i>
+    </button>
+  </div>
+
+  <!-- Notification Bell Icon -->
+  <!-- <div>
+    <button class="notification-bell" (click)="toggleNotifications()" aria-label="Show Notifications">
+      <i class="pi pi-bell" style="font-size: 1.5rem"></i>
+      <span class="notification-count" *ngIf="unreadCount > 0" aria-live="polite">{{ unreadCount }}</span>
+    </button>
+  </div> -->
+  
+  <!-- Notification Dropdown -->
+  <!-- <div class="notification-dropdown" *ngIf="isNotificationsVisible">
+    <ul>
+      <li *ngFor="let notification of notifications" (click)="markAsRead(notification)">
+        <span [ngClass]="{'unread': !notification.isRead}">{{ notification.summary }}</span>
+      </li>
+    </ul>
+  </div> -->
+
+  <!-- Profile Dropdown -->
+  <div class="profile-menu">
+    <button type="button" class="user-button" aria-label="User Profile">
+      <i class="pi pi-user" style="font-size: 1.5rem"></i>
+    </button>
+    <span class="user-name">Andrés Parra</span>
+  </div>
+</header>

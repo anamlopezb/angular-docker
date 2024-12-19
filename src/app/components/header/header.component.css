@@ -1,0 +1,157 @@
+/* Estilos del header */
+header {
+    position: fixed;
+    top: 0;
+    left: 300px; /* Ajustado para que no se superponga a la barra lateral */
+    right: 0;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    width: calc(100% - 300px);
+    z-index: 1001; /* Z-index alto para que esté por encima de los elementos de la barra lateral */
+  }
+  
+  .header-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Ocultar el ícono de hamburguesa en pantallas grandes */
+  .hamburger-icon {
+    display: none; /* Ocultar en pantallas grandes */
+  }
+  
+  .notification-bell,
+  .user-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 15px;
+  }
+  
+  .user-name {
+    margin-left: 10px;
+  }
+  
+  .notification-bell {
+    position: relative;
+  }
+  
+  .notification-count {
+    position: absolute;
+    top: -5px;
+    right: -3px;
+    background-color: #283142;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+  
+  /* Estilos para las notificaciones */
+  .notification-dropdown {
+    position: absolute; /* Posición absoluta respecto al contenedor padre */
+    top: 60px; /* Ajusta la posición vertical según sea necesario */
+    right: 20px; /* Ajusta la posición horizontal según sea necesario */
+    background-color: white; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    z-index: 9999; /* Asegúrate de que tenga un z-index alto */
+    display: block; /* Asegúrate de que se muestre cuando isNotificationsVisible sea true */
+  }
+  
+  .notification-dropdown ul {
+    list-style: none; /* Quitar estilo de lista */
+    padding: 0; /* Sin padding */
+    margin: 0; /* Sin margen */
+  }
+  
+  .notification-dropdown li {
+    padding: 10px 15px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  }
+  
+  .notification-dropdown li:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+  }
+  
+  .unread {
+    font-weight: bold; /* Resaltar notificaciones no leídas */
+  }
+  
+  /* Media queries para pantallas más pequeñas */
+  @media (max-width: 1024px) {
+    header {
+      left: 0;
+      width: 100%;
+    }
+  
+    .hamburger-icon,
+    .notification-bell,
+    .user-button {
+      margin-left: 10px;
+    }
+  
+    .user-name {
+      margin-left: 5px;
+    }
+  
+    .notification-count {
+      width: 18px;
+      height: 18px;
+      font-size: 10px;
+  }
+  
+  }
+  
+  /* Media query para pantallas aún más pequeñas */
+  @media (max-width: 768px) {
+    header {
+      height: 50px;
+      padding: 0 10px;
+    }
+  
+    .header-container {
+      justify-content: space-between;
+    }
+  
+    .hamburger-icon,
+    .notification-bell,
+    .user-button {
+      margin-left: 5px;
+    }
+  
+    .user-name {
+      display: none; /* Ocultar nombre de usuario en pantallas pequeñas */
+    }
+  
+    .notification-count {
+      width: 16px;
+      height: 16px;
+      font-size: 10px;
+    }
+  
+    /* Asegura que el ícono de hamburguesa esté visible sobre la nav en móviles */
+    .hamburger-icon {
+      display: block; /* Mostrar en pantallas pequeñas */
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 1001; /* Asegura que el botón esté por encima de la nav */
+    }
+  }
+  

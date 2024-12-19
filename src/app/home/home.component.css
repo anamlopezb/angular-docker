@@ -1,0 +1,20 @@
+.layout-wrapper {
+    display: flex;
+    flex-direction: row;
+    height: 100vh; /* Asegura que el contenedor ocupe toda la altura */
+    overflow: hidden;
+  }
+  
+  .main-content {
+    flex-grow: 1; /* El contenido principal ocupa el espacio restante */
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+  }
+  
+  .content {
+    flex-grow: 1;
+    padding: 20px; /* Espaciado interno del contenido */
+    overflow-y: auto; /* Desplazamiento vertical si es necesario */
+  }
+  
