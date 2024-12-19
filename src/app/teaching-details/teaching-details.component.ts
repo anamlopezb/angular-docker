@@ -6,6 +6,10 @@ import { ProgressBarModule } from 'primeng/progressbar';
 import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DialogModule } from 'primeng/dialog';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';  // Para usar [(ngModel)] con el input
+import { InputTextModule } from 'primeng/inputtext'; // Para usar p-inputText de PrimeNG
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-teaching-details',
@@ -35,4 +39,5 @@ export class TeachingDetailsComponent {
       mode_two: 'Convenio',
     }
   ]
+
 }

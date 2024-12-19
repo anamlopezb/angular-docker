@@ -28,10 +28,12 @@ export class StudentConsultationComponent {
     {
       level_tec:'Tecnico',
       level_tecno: 'Tecnologo',
+      mode_one:'Contrato de aprendizaje',
+      mode_two:'Convenio',
       date_start: '15/01/2021',
       date_end: '15/08/2021',
-      stade: 'Aprovado',
-      stades: 'Rechazado'
+      stade: 'Activo',
+      stades: 'Cerrado'
     }
   ]
   constructor(private router: Router) {}
