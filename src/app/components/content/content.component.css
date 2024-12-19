@@ -1,0 +1,24 @@
+/* Estilos del contenido */
+.content {
+    padding: 10px;
+    margin-left: 312px; /* Espaciado a la izquierda para el contenido */
+    margin-top: 70px; /* Espaciado superior para el contenido */
+    margin-right: 10px; /* Espaciado a la derecha para el contenido */
+  }
+  
+  /* Media queries para ajustar el contenido en tablets y móviles */
+  @media (max-width: 1024px) {
+    .content {
+      margin-left: 260px; /* Ajustar margen izquierdo para tablets */
+      margin-top: 60px; /* Ajustar margen superior para tablets */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .content {
+      margin-left: 0; /* Eliminar margen izquierdo en móviles */
+      margin-top: 60px; /* Mantener margen superior en móviles */
+      padding: 10px 5px; /* Ajustar padding en móviles */
+    }
+  }
+  

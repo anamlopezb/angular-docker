@@ -1,0 +1,15 @@
+<nav
+  class="sidebar"
+  [class.hidden]="!isSidebarVisible"
+  aria-label="Main Navigation"
+>
+  <img src="https://ucompensar.edu.co/wp-content/uploads/2022/02/logoblanco.png" alt="Logo" class="sidebar-logo" />
+  <ul role="navigation">
+    <!-- Generar los menús dinámicamente -->
+    <li *ngFor="let menu of menus" [class.active]="isActive(menu.enlace)">
+      <a (click)="onNavigate(menu.enlace)" [attr.aria-label]="menu.descripcion">{{ menu.nombre_item }}</a>
+    </li>
+  </ul>
+</nav>
+
+

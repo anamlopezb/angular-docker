@@ -1,0 +1,105 @@
+/* Estilos de la barra lateral (sidebar) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px; /* Ancho de la barra lateral en PC */
+  height: 100%; /* Altura completa de la pantalla */
+  background-color: #283142; /* Color de fondo de la barra lateral */
+  color: white; /* Color del texto en la barra lateral */
+  padding: 1rem; /* Espaciado interno */
+  z-index: 1000; /* Z-index alto para que esté por encima del header */
+}
+
+.sidebar.hidden {
+  display: none;
+}
+
+.sidebar-logo {
+  display: block;
+  margin-bottom: 15px;
+  width: 100%;
+  height: auto;
+  margin-top: 3em;
+}
+
+
+.sidebar ul {
+  padding-left: 0;
+  margin-top: 30px;
+}
+
+.sidebar ul li {
+  padding: 10px 15px;
+  list-style: none;
+  cursor: pointer;
+  transition: background-color 0.3s, border-radius 0.3s;
+  margin-bottom: 10px;
+  display: block; /* Permite que el <li> ocupe todo el ancho */
+  width: 100%; /* Asegura que el <li> ocupe todo el ancho disponible */
+}
+
+.sidebar ul li a {
+  display: block; /* Hace que el enlace ocupe toda el área del li */
+  width: 100%;
+  color: inherit; /* Hereda el color del texto del li */
+  text-decoration: none; /* Elimina la subrayado del enlace */
+}
+
+.sidebar ul li.active {
+  background-color: #777;
+  color: white;
+  border-radius: 8px;
+}
+
+.sidebar ul li:hover {
+  background-color: #555;
+  color: white;
+  border-radius: 8px;
+}
+
+li.active {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+/* Media queries para hacer la barra lateral responsive */
+@media (max-width: 1024px) { /* Estilos para tablets */
+  .sidebar {
+    width: 250px;
+  }
+}
+
+.sidebar.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar.hidden {
+    display: none;
+  }
+
+  .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: #283142;
+    color: white;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+  }
+
+  .sidebar-logo {
+    display: block;
+    margin-bottom: 15px;
+    margin-top: 80px;
+    width: 100%;
+    height: auto;
+  }
+
+  .sidebar {
+    width: 70%;
+    max-width: 250px;
+  }
+}
