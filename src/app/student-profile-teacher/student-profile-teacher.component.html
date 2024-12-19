@@ -1,0 +1,65 @@
+<div class="student-profile-container">
+  <h1>Perfil del Estudiante</h1>
+  <div class="profile-header">
+    <p><strong>Nombre:</strong> {{ student?.name }}</p>
+    <p><strong>Nivel:</strong> {{ student.level }}</p>
+    <p><strong>Estado:</strong> {{ student?.status }}</p>
+  </div>
+
+  <p-table [value]="deliveries" [tableStyle]="{ 'min-width': '60rem' }">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Vizualicacion</th>
+        <th>Documento</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+        <th>Observaciones</th> <!-- Nueva columna -->
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-delivery>
+      <tr>
+        <td>
+          <!-- Botón para visualizar -->
+          <button 
+            pButton 
+            class="p-button-rounded p-button-info p-mr-2" 
+            icon="pi pi-eye" 
+            (click)="viewDocument(delivery)">
+          </button>
+          <!-- Botón para descargar -->
+          <button 
+            pButton 
+            class="p-button-rounded p-button-primary" 
+            icon="pi pi-download" 
+            (click)="downloadDocument(delivery)">
+          </button>
+        </td>
+        <td>{{ delivery.document }}</td>
+        <td>{{ delivery.status }}</td>
+        <td>
+          <button 
+            pButton 
+            class="p-button-rounded p-button-success p-mr-2" 
+            icon="pi pi-check" 
+            (click)="approveDelivery(delivery)" 
+            [disabled]="!delivery.observations || delivery.observations.trim() === ''">
+          </button>
+          <button 
+            pButton 
+            class="p-button-rounded p-button-danger" 
+            icon="pi pi-times" 
+            (click)="rejectDelivery(delivery)" 
+            [disabled]="!delivery.observations || delivery.observations.trim() === ''">
+          </button>
+        </td>
+        <td>
+          <input 
+            type="text" 
+            [(ngModel)]="delivery.observations" 
+            placeholder="Añadir observaciones" 
+            class="observations-input" />
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+  

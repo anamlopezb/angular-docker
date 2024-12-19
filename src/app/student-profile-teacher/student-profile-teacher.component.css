@@ -1,0 +1,80 @@
+.profile-header {
+  padding: 1rem 2rem;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.profile-header h2 {
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.deliveries-table-container {
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.deliveries-table-container h3 {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.approve-button,
+.reject-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+.approve-button {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.approve-button:hover {
+  background-color: #218838;
+}
+
+.reject-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.reject-button:hover {
+  background-color: #c82333;
+}
+
+.observations-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.observations-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  outline: none;
+}
+
+.observations-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.observations-input:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+
+  

@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { ProgressBarModule } from 'primeng/progressbar';
+import { Router } from '@angular/router';
 // For dynamic progressbar demo
 import { ToastModule } from 'primeng/toast';
 import { FileUploadModule } from 'primeng/fileupload';
 import { DialogModule } from 'primeng/dialog';
+import { FormGeneralSchemeComponent } from '../form-general-scheme/form-general-scheme.component';
 
 @Component({
   selector: 'app-first-delivery',
@@ -16,7 +18,8 @@ import { DialogModule } from 'primeng/dialog';
     ProgressBarModule,
     ToastModule,
     FileUploadModule,
-    DialogModule
+    DialogModule,
+    FormGeneralSchemeComponent
   ],
   templateUrl: './first-delivery.component.html',
   styleUrl: './first-delivery.component.css'
@@ -37,4 +40,19 @@ export class FirstDeliveryComponent {
             
     ]
   
+    constructor(private router: Router) {}
+    //metodo para hacer el rediccionamiento 
+    redirigir() {
+      this.router.navigate(['/form-general']); // Cambia '/agendamientos' por la ruta deseada
+    }
+    //variable para Q FUNCIONE EL ABRIR Y CERRAR LA VENTANA EMERGENTE 
+    visible: boolean = false;
+    //METODO PARA ABRIR Y CERRAR LAS VENTANAS EMERGENTES DE LOS FORMULARIOS
+    abrirDialogo() {
+      this.visible = true;
+    }
+    //CERRAR VENTANA
+    cerrarDialogo() {
+      this.visible = false;
+    }
 }
